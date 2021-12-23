@@ -1,0 +1,1148 @@
+{
+  "version": "tree-0.1",
+  "tree": {
+    "id": "App",
+    "path": "",
+    "children": {
+      "Tree": {
+        "id": "Tree",
+        "path": "Tree",
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Construct",
+          "version": "1.135.0"
+        }
+      },
+      "IrfanSkipQProject1Stack": {
+        "id": "IrfanSkipQProject1Stack",
+        "path": "IrfanSkipQProject1Stack",
+        "children": {
+          "lambda-role": {
+            "id": "lambda-role",
+            "path": "IrfanSkipQProject1Stack/lambda-role",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/lambda-role/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    },
+                    "managedPolicyArns": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/service-role/AWSlambdaBasicExecutionRole"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/CloudWatchFullAccess"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.CfnRole",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-iam.Role",
+              "version": "1.135.0"
+            }
+          },
+          "FirstHellammbda": {
+            "id": "FirstHellammbda",
+            "path": "IrfanSkipQProject1Stack/FirstHellammbda",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "IrfanSkipQProject1Stack/FirstHellammbda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "IrfanSkipQProject1Stack/FirstHellammbda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.135.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "IrfanSkipQProject1Stack/FirstHellammbda/Code/AssetBucket",
+                    "children": {
+                      "Notifications": {
+                        "id": "Notifications",
+                        "path": "IrfanSkipQProject1Stack/FirstHellammbda/Code/AssetBucket/Notifications",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.135.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.135.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/FirstHellammbda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3BucketC809A746"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3VersionKey91A0785B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3VersionKey91A0785B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "lambdaroleDFE21467",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "Monitor_webhealth.lambda_handler",
+                    "runtime": "python3.6"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda.Function",
+              "version": "1.135.0"
+            }
+          },
+          "AssetParameters": {
+            "id": "AssetParameters",
+            "path": "IrfanSkipQProject1Stack/AssetParameters",
+            "children": {
+              "abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478": {
+                "id": "abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478",
+                "path": "IrfanSkipQProject1Stack/AssetParameters/abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478",
+                "children": {
+                  "S3Bucket": {
+                    "id": "S3Bucket",
+                    "path": "IrfanSkipQProject1Stack/AssetParameters/abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478/S3Bucket",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.135.0"
+                    }
+                  },
+                  "S3VersionKey": {
+                    "id": "S3VersionKey",
+                    "path": "IrfanSkipQProject1Stack/AssetParameters/abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478/S3VersionKey",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.135.0"
+                    }
+                  },
+                  "ArtifactHash": {
+                    "id": "ArtifactHash",
+                    "path": "IrfanSkipQProject1Stack/AssetParameters/abad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478/ArtifactHash",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.CfnParameter",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Construct",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.135.0"
+            }
+          },
+          "MonitorwebHealth": {
+            "id": "MonitorwebHealth",
+            "path": "IrfanSkipQProject1Stack/MonitorwebHealth",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/MonitorwebHealth/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Events::Rule",
+                  "aws:cdk:cloudformation:props": {
+                    "scheduleExpression": "rate(1 minute)",
+                    "state": "ENABLED",
+                    "targets": [
+                      {
+                        "id": "Target0",
+                        "arn": {
+                          "Fn::GetAtt": [
+                            "FirstHellammbdaDB9FC3BC",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-events.CfnRule",
+                  "version": "1.135.0"
+                }
+              },
+              "AllowEventRuleIrfanSkipQProject1StackFirstHellammbda648CB635": {
+                "id": "AllowEventRuleIrfanSkipQProject1StackFirstHellammbda648CB635",
+                "path": "IrfanSkipQProject1Stack/MonitorwebHealth/AllowEventRuleIrfanSkipQProject1StackFirstHellammbda648CB635",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                  "aws:cdk:cloudformation:props": {
+                    "action": "lambda:InvokeFunction",
+                    "functionName": {
+                      "Fn::GetAtt": [
+                        "FirstHellammbdaDB9FC3BC",
+                        "Arn"
+                      ]
+                    },
+                    "principal": "events.amazonaws.com",
+                    "sourceArn": {
+                      "Fn::GetAtt": [
+                        "MonitorwebHealth28B40C7A",
+                        "Arn"
+                      ]
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-events.Rule",
+              "version": "1.135.0"
+            }
+          },
+          "irfanhassantable": {
+            "id": "irfanhassantable",
+            "path": "IrfanSkipQProject1Stack/irfanhassantable",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/irfanhassantable/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
+                  "aws:cdk:cloudformation:props": {
+                    "keySchema": [
+                      {
+                        "attributeName": "Timestamp",
+                        "keyType": "HASH"
+                      }
+                    ],
+                    "attributeDefinitions": [
+                      {
+                        "attributeName": "Timestamp",
+                        "attributeType": "S"
+                      }
+                    ],
+                    "provisionedThroughput": {
+                      "readCapacityUnits": 5,
+                      "writeCapacityUnits": 5
+                    },
+                    "tableName": "Irfandynamodb_Table"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-dynamodb.CfnTable",
+                  "version": "1.135.0"
+                }
+              },
+              "ScalingRole": {
+                "id": "ScalingRole",
+                "path": "IrfanSkipQProject1Stack/irfanhassantable/ScalingRole",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.Resource",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-dynamodb.Table",
+              "version": "1.135.0"
+            }
+          },
+          "lambda-role-db": {
+            "id": "lambda-role-db",
+            "path": "IrfanSkipQProject1Stack/lambda-role-db",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/lambda-role-db/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::IAM::Role",
+                  "aws:cdk:cloudformation:props": {
+                    "assumeRolePolicyDocument": {
+                      "Statement": [
+                        {
+                          "Action": "sts:AssumeRole",
+                          "Effect": "Allow",
+                          "Principal": {
+                            "Service": "lambda.amazonaws.com"
+                          }
+                        }
+                      ],
+                      "Version": "2012-10-17"
+                    },
+                    "managedPolicyArns": [
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/AmazonDynamoDBFullAccess"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/AmazonSNSFullAccess"
+                          ]
+                        ]
+                      },
+                      {
+                        "Fn::Join": [
+                          "",
+                          [
+                            "arn:",
+                            {
+                              "Ref": "AWS::Partition"
+                            },
+                            ":iam::aws:policy/AmazonS3FullAccess"
+                          ]
+                        ]
+                      }
+                    ]
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.CfnRole",
+                  "version": "1.135.0"
+                }
+              },
+              "DefaultPolicy": {
+                "id": "DefaultPolicy",
+                "path": "IrfanSkipQProject1Stack/lambda-role-db/DefaultPolicy",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "IrfanSkipQProject1Stack/lambda-role-db/DefaultPolicy/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::IAM::Policy",
+                      "aws:cdk:cloudformation:props": {
+                        "policyDocument": {
+                          "Statement": [
+                            {
+                              "Action": "dynamodb:*",
+                              "Effect": "Allow",
+                              "Resource": [
+                                {
+                                  "Fn::GetAtt": [
+                                    "irfanhassantable9BB9EE06",
+                                    "Arn"
+                                  ]
+                                },
+                                {
+                                  "Ref": "AWS::NoValue"
+                                }
+                              ]
+                            }
+                          ],
+                          "Version": "2012-10-17"
+                        },
+                        "policyName": "lambdaroledbDefaultPolicyAF35499B",
+                        "roles": [
+                          {
+                            "Ref": "lambdaroledb8F96FA37"
+                          }
+                        ]
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-iam.CfnPolicy",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-iam.Policy",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-iam.Role",
+              "version": "1.135.0"
+            }
+          },
+          "secondHellammbda": {
+            "id": "secondHellammbda",
+            "path": "IrfanSkipQProject1Stack/secondHellammbda",
+            "children": {
+              "Code": {
+                "id": "Code",
+                "path": "IrfanSkipQProject1Stack/secondHellammbda/Code",
+                "children": {
+                  "Stage": {
+                    "id": "Stage",
+                    "path": "IrfanSkipQProject1Stack/secondHellammbda/Code/Stage",
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/core.AssetStaging",
+                      "version": "1.135.0"
+                    }
+                  },
+                  "AssetBucket": {
+                    "id": "AssetBucket",
+                    "path": "IrfanSkipQProject1Stack/secondHellammbda/Code/AssetBucket",
+                    "children": {
+                      "Notifications": {
+                        "id": "Notifications",
+                        "path": "IrfanSkipQProject1Stack/secondHellammbda/Code/AssetBucket/Notifications",
+                        "constructInfo": {
+                          "fqn": "@aws-cdk/core.Construct",
+                          "version": "1.135.0"
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-s3.BucketBase",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-s3-assets.Asset",
+                  "version": "1.135.0"
+                }
+              },
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/secondHellammbda/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
+                  "aws:cdk:cloudformation:props": {
+                    "code": {
+                      "s3Bucket": {
+                        "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3BucketC809A746"
+                      },
+                      "s3Key": {
+                        "Fn::Join": [
+                          "",
+                          [
+                            {
+                              "Fn::Select": [
+                                0,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3VersionKey91A0785B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "Fn::Select": [
+                                1,
+                                {
+                                  "Fn::Split": [
+                                    "||",
+                                    {
+                                      "Ref": "AssetParametersabad53707010e424b657c203058210b88f245aa7fd9d0c4aca0b3348d4067478S3VersionKey91A0785B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        ]
+                      }
+                    },
+                    "role": {
+                      "Fn::GetAtt": [
+                        "lambdaroledb8F96FA37",
+                        "Arn"
+                      ]
+                    },
+                    "handler": "dynamodb_lambda.lambda_handler",
+                    "runtime": "python3.6"
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnFunction",
+                  "version": "1.135.0"
+                }
+              },
+              "AllowInvoke:IrfanSkipQProject1StackWebHealth40F80C06": {
+                "id": "AllowInvoke:IrfanSkipQProject1StackWebHealth40F80C06",
+                "path": "IrfanSkipQProject1Stack/secondHellammbda/AllowInvoke:IrfanSkipQProject1StackWebHealth40F80C06",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::Lambda::Permission",
+                  "aws:cdk:cloudformation:props": {
+                    "action": "lambda:InvokeFunction",
+                    "functionName": {
+                      "Fn::GetAtt": [
+                        "secondHellammbda69B4B3E3",
+                        "Arn"
+                      ]
+                    },
+                    "principal": "sns.amazonaws.com",
+                    "sourceArn": {
+                      "Ref": "WebHealthF43679AB"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-lambda.CfnPermission",
+                  "version": "1.135.0"
+                }
+              },
+              "WebHealth": {
+                "id": "WebHealth",
+                "path": "IrfanSkipQProject1Stack/secondHellammbda/WebHealth",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "IrfanSkipQProject1Stack/secondHellammbda/WebHealth/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
+                      "aws:cdk:cloudformation:props": {
+                        "protocol": "lambda",
+                        "topicArn": {
+                          "Ref": "WebHealthF43679AB"
+                        },
+                        "endpoint": {
+                          "Fn::GetAtt": [
+                            "secondHellammbda69B4B3E3",
+                            "Arn"
+                          ]
+                        }
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-sns.CfnSubscription",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-sns.Subscription",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-lambda.Function",
+              "version": "1.135.0"
+            }
+          },
+          "WebHealth": {
+            "id": "WebHealth",
+            "path": "IrfanSkipQProject1Stack/WebHealth",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/WebHealth/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::SNS::Topic",
+                  "aws:cdk:cloudformation:props": {}
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-sns.CfnTopic",
+                  "version": "1.135.0"
+                }
+              },
+              "muhammad.irfan.hassan.s@skipq.org": {
+                "id": "muhammad.irfan.hassan.s@skipq.org",
+                "path": "IrfanSkipQProject1Stack/WebHealth/muhammad.irfan.hassan.s@skipq.org",
+                "children": {
+                  "Resource": {
+                    "id": "Resource",
+                    "path": "IrfanSkipQProject1Stack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource",
+                    "attributes": {
+                      "aws:cdk:cloudformation:type": "AWS::SNS::Subscription",
+                      "aws:cdk:cloudformation:props": {
+                        "protocol": "email",
+                        "topicArn": {
+                          "Ref": "WebHealthF43679AB"
+                        },
+                        "endpoint": "muhammad.irfan.hassan.s@skipq.org"
+                      }
+                    },
+                    "constructInfo": {
+                      "fqn": "@aws-cdk/aws-sns.CfnSubscription",
+                      "version": "1.135.0"
+                    }
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-sns.Subscription",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-sns.Topic",
+              "version": "1.135.0"
+            }
+          },
+          "AvailabiltyAlarm www.skipq.org": {
+            "id": "AvailabiltyAlarm www.skipq.org",
+            "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.skipq.org",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.skipq.org/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "LessThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Aailibilty",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.skipq.org"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "availabilty_metric www.skipq.org",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 1
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "latencyAlarm www.skipq.org": {
+            "id": "latencyAlarm www.skipq.org",
+            "path": "IrfanSkipQProject1Stack/latencyAlarm www.skipq.org",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/latencyAlarm www.skipq.org/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "GreaterThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Latency",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.skipq.org"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "latency_metric www.skipq.org",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 0.5
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "AvailabiltyAlarm www.alibaba.com": {
+            "id": "AvailabiltyAlarm www.alibaba.com",
+            "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.alibaba.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.alibaba.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "LessThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Aailibilty",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.alibaba.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "availabilty_metric www.alibaba.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 1
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "latencyAlarm www.alibaba.com": {
+            "id": "latencyAlarm www.alibaba.com",
+            "path": "IrfanSkipQProject1Stack/latencyAlarm www.alibaba.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/latencyAlarm www.alibaba.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "GreaterThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Latency",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.alibaba.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "latency_metric www.alibaba.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 0.5
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "AvailabiltyAlarm www.binance.com": {
+            "id": "AvailabiltyAlarm www.binance.com",
+            "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.binance.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.binance.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "LessThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Aailibilty",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.binance.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "availabilty_metric www.binance.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 1
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "latencyAlarm www.binance.com": {
+            "id": "latencyAlarm www.binance.com",
+            "path": "IrfanSkipQProject1Stack/latencyAlarm www.binance.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/latencyAlarm www.binance.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "GreaterThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Latency",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.binance.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "latency_metric www.binance.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 0.5
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "AvailabiltyAlarm www.apple.com": {
+            "id": "AvailabiltyAlarm www.apple.com",
+            "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.apple.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/AvailabiltyAlarm www.apple.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "LessThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Aailibilty",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.apple.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "availabilty_metric www.apple.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 1
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "latencyAlarm www.apple.com": {
+            "id": "latencyAlarm www.apple.com",
+            "path": "IrfanSkipQProject1Stack/latencyAlarm www.apple.com",
+            "children": {
+              "Resource": {
+                "id": "Resource",
+                "path": "IrfanSkipQProject1Stack/latencyAlarm www.apple.com/Resource",
+                "attributes": {
+                  "aws:cdk:cloudformation:type": "AWS::CloudWatch::Alarm",
+                  "aws:cdk:cloudformation:props": {
+                    "comparisonOperator": "GreaterThanThreshold",
+                    "evaluationPeriods": 1,
+                    "alarmActions": [
+                      {
+                        "Ref": "WebHealthF43679AB"
+                      }
+                    ],
+                    "datapointsToAlarm": 1,
+                    "metrics": [
+                      {
+                        "metricStat": {
+                          "metric": {
+                            "metricName": "URL_Latency",
+                            "namespace": "irfanhassanSkipQ_WebHealth_Monitor",
+                            "dimensions": [
+                              {
+                                "name": "URL",
+                                "value": "www.apple.com"
+                              }
+                            ]
+                          },
+                          "period": 60,
+                          "stat": "Average"
+                        },
+                        "id": "m1",
+                        "label": "latency_metric www.apple.com",
+                        "returnData": true
+                      }
+                    ],
+                    "threshold": 0.5
+                  }
+                },
+                "constructInfo": {
+                  "fqn": "@aws-cdk/aws-cloudwatch.CfnAlarm",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/aws-cloudwatch.Alarm",
+              "version": "1.135.0"
+            }
+          },
+          "CDKMetadata": {
+            "id": "CDKMetadata",
+            "path": "IrfanSkipQProject1Stack/CDKMetadata",
+            "children": {
+              "Default": {
+                "id": "Default",
+                "path": "IrfanSkipQProject1Stack/CDKMetadata/Default",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnResource",
+                  "version": "1.135.0"
+                }
+              },
+              "Condition": {
+                "id": "Condition",
+                "path": "IrfanSkipQProject1Stack/CDKMetadata/Condition",
+                "constructInfo": {
+                  "fqn": "@aws-cdk/core.CfnCondition",
+                  "version": "1.135.0"
+                }
+              }
+            },
+            "constructInfo": {
+              "fqn": "@aws-cdk/core.Construct",
+              "version": "1.135.0"
+            }
+          }
+        },
+        "constructInfo": {
+          "fqn": "@aws-cdk/core.Stack",
+          "version": "1.135.0"
+        }
+      }
+    },
+    "constructInfo": {
+      "fqn": "@aws-cdk/core.App",
+      "version": "1.135.0"
+    }
+  }
+}
