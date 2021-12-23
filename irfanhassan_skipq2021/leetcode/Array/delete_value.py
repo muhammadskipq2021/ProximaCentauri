@@ -1,3 +1,4 @@
+#function 
 class Solution:
     def delete_value(self, nums,value):
         if value in nums:
