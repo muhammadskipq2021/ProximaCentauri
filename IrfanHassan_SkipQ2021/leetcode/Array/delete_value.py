@@ -1,3 +1,4 @@
+#adding fucntion to delete value from array
 class Solution:
     def delete_value(self, nums,value):
         if value in nums:
