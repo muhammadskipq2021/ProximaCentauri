@@ -15,9 +15,9 @@ class IrfanSkipQPpielineStack(cdk.Stack):
                            trigger = cpactions.GitHubTrigger.POLL)
                            
         synth = pipelines.ShellStep('synth', input= source,
-                commands = ["cd irfanhassan_skipq2021/sprint1", 
+                commands = ["cd irfanhassan_skipq2021/Sprint1", 
                             "pip install -r requirements.txt ","npm install -g aws-cdk","cdk synth" ],
-                            primary_output_directory = "irfanhassan_skipq2021/sprint2/cdk.out"
+                            primary_output_directory = "irfanhassan_skipq2021/Sprint2/cdk.out"
                             )
         pipeline = pipelines.CodePipeline(self,'pipeline',synth=synth)
         #beta_stage = IrfanSkipQProject1Stack(self, "Beta_stage", env = { 'account': '315997497220', 'region': 'us-east-2'})
