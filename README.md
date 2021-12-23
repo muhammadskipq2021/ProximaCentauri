@@ -54,12 +54,13 @@ $ cdk init app --language python
 copy the files and update file in CDK project file. 
 ``````
 $ python -m pip install aws-cdk.core==1.135.0
-$ python -m pip install -r requirements.txt
+$ pip install -r requirements.txt
 $ nvm install v16.3.0 && nvm use 16.3.0 && nvm alias default v16.3.0
 $ npm install -g aws-cdk
 $ export PATH=$PATH:$(npm get prefix)/bin
-$ python -m pip install aws-cdk.aws-s3 aws-cdk.aws-lambda
-
+$ pip install aws-cdk.aws-s3 aws-cdk.aws-lambda
+$ pip install aws-cdk.aws_cloudwatch_actions==1.135.0
+$ pip isntall boto3
 ``````
 now all required requirements are done on machine. 
 ### Test Code
