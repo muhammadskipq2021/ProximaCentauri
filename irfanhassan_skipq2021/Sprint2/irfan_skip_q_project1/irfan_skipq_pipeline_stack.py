@@ -3,9 +3,9 @@ from aws_cdk import (
     pipelines,
     aws_codepipeline_actions as cpactions
 )
-from irfan_skip_q_project1.irfan_skip_q_project1_stage import IrfanSkipQPpielineStage
+from irfan_skip_q_project1.irfan_skip_q_project1_stage import IrfanSkipqPipelineStage
 
-class IrfanSkipQPpielineStack(cdk.Stack):
+class IrfanSkipqPipelineStack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
         
@@ -20,7 +20,7 @@ class IrfanSkipQPpielineStack(cdk.Stack):
                             primary_output_directory = "irfanhassan_skipq2021/Sprint2/cdk.out"
                             )
         pipeline = pipelines.CodePipeline(self,'pipeline',synth=synth)
-        #betaStage = IrfanSkipQPpielineStage(self, "BetaStage", env = { 'account': '315997497220', 'region': 'us-east-2'})
+        #betaStage = IrfanSkipqPipelineStage(self, "BetaStage", env = { 'account': '315997497220', 'region': 'us-east-2'})
         #test = pipelines.ShellStep('unit_test',commands=["cd irfanhassan_skipq2021/Sprint2", "pip install -r requirements.txt",
         #"pip install pytest", "pytest unitTest/te.py","pytest intigrationTest/intigrationTest.py"])
         #pipeline.add_stage(betaStage, pre =[test])
