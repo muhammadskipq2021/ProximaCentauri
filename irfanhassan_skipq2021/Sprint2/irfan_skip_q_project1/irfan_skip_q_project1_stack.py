@@ -14,7 +14,7 @@ from aws_cdk import (
 from resources import constants as constant_
 from resources.s3bucket_read import s3bucket_read as bucket 
 
-class IrfanSkipQProject1Stack(cdk.Stack):
+class IrfanSkipQProject1Stack(cdk.Stage):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
