@@ -108,16 +108,6 @@
               "Effect": "Allow",
               "Resource": {
                 "Fn::GetAtt": [
-                  "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930",
-                  "Arn"
-                ]
-              }
-            },
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
                   "pipelinePipelineBetaStageirfanstackPrepareCodePipelineActionRoleD640BE80",
                   "Arn"
                 ]
@@ -129,6 +119,16 @@
               "Resource": {
                 "Fn::GetAtt": [
                   "pipelinePipelineBetaStageirfanstackDeployCodePipelineActionRole7007800C",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930",
                   "Arn"
                 ]
               }
@@ -257,32 +257,6 @@
             "Actions": [
               {
                 "ActionTypeId": {
-                  "Category": "Build",
-                  "Owner": "AWS",
-                  "Provider": "CodeBuild",
-                  "Version": "1"
-                },
-                "Configuration": {
-                  "ProjectName": {
-                    "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
-                  }
-                },
-                "InputArtifacts": [
-                  {
-                    "Name": "muhammadskipq2021_ProximaCentauri_Source"
-                  }
-                ],
-                "Name": "unit_test",
-                "RoleArn": {
-                  "Fn::GetAtt": [
-                    "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930",
-                    "Arn"
-                  ]
-                },
-                "RunOrder": 1
-              },
-              {
-                "ActionTypeId": {
                   "Category": "Deploy",
                   "Owner": "AWS",
                   "Provider": "CloudFormation",
@@ -313,7 +287,7 @@
                     "Arn"
                   ]
                 },
-                "RunOrder": 2
+                "RunOrder": 1
               },
               {
                 "ActionTypeId": {
@@ -331,6 +305,32 @@
                 "RoleArn": {
                   "Fn::GetAtt": [
                     "pipelinePipelineBetaStageirfanstackDeployCodePipelineActionRole7007800C",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 2
+              },
+              {
+                "ActionTypeId": {
+                  "Category": "Build",
+                  "Owner": "AWS",
+                  "Provider": "CodeBuild",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "ProjectName": {
+                    "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
+                  }
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "muhammadskipq2021_ProximaCentauri_Source"
+                  }
+                ],
+                "Name": "unit_test",
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930",
                     "Arn"
                   ]
                 },
@@ -652,235 +652,6 @@
         "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
-    "pipelinePipelineBetaStageunittestRole6F470DD5": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "Service": "codebuild.amazonaws.com"
-              }
-            }
-          ],
-          "Version": "2012-10-17"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Role/Resource"
-      }
-    },
-    "pipelinePipelineBetaStageunittestRoleDefaultPolicy2C39ECA3": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "logs:CreateLogGroup",
-                "logs:CreateLogStream",
-                "logs:PutLogEvents"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":logs:us-east-2:315997497220:log-group:/aws/codebuild/",
-                      {
-                        "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
-                      }
-                    ]
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":logs:us-east-2:315997497220:log-group:/aws/codebuild/",
-                      {
-                        "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
-                      },
-                      ":*"
-                    ]
-                  ]
-                }
-              ]
-            },
-            {
-              "Action": [
-                "codebuild:CreateReportGroup",
-                "codebuild:CreateReport",
-                "codebuild:UpdateReport",
-                "codebuild:BatchPutTestCases",
-                "codebuild:BatchPutCodeCoverages"
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::Join": [
-                  "",
-                  [
-                    "arn:",
-                    {
-                      "Ref": "AWS::Partition"
-                    },
-                    ":codebuild:us-east-2:315997497220:report-group/",
-                    {
-                      "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
-                    },
-                    "-*"
-                  ]
-                ]
-              }
-            },
-            {
-              "Action": [
-                "s3:GetObject*",
-                "s3:GetBucket*",
-                "s3:List*"
-              ],
-              "Effect": "Allow",
-              "Resource": [
-                {
-                  "Fn::GetAtt": [
-                    "pipelinePipelineArtifactsBucketC2CD5B5E",
-                    "Arn"
-                  ]
-                },
-                {
-                  "Fn::Join": [
-                    "",
-                    [
-                      {
-                        "Fn::GetAtt": [
-                          "pipelinePipelineArtifactsBucketC2CD5B5E",
-                          "Arn"
-                        ]
-                      },
-                      "/*"
-                    ]
-                  ]
-                }
-              ]
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "PolicyName": "pipelinePipelineBetaStageunittestRoleDefaultPolicy2C39ECA3",
-        "Roles": [
-          {
-            "Ref": "pipelinePipelineBetaStageunittestRole6F470DD5"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Role/DefaultPolicy/Resource"
-      }
-    },
-    "pipelinePipelineBetaStageunittest29A04AB2": {
-      "Type": "AWS::CodeBuild::Project",
-      "Properties": {
-        "Artifacts": {
-          "Type": "CODEPIPELINE"
-        },
-        "Environment": {
-          "ComputeType": "BUILD_GENERAL1_SMALL",
-          "Image": "aws/codebuild/standard:5.0",
-          "ImagePullCredentialsType": "CODEBUILD",
-          "PrivilegedMode": false,
-          "Type": "LINUX_CONTAINER"
-        },
-        "ServiceRole": {
-          "Fn::GetAtt": [
-            "pipelinePipelineBetaStageunittestRole6F470DD5",
-            "Arn"
-          ]
-        },
-        "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"cd irfanhassan_skipq2021/Sprint2\",\n        \"pip install -r requirements.txt\",\n        \"pip install pytest\",\n        \"pytest unitTest\",\n        \"pytest intigrationTest\"\n      ]\n    }\n  }\n}",
-          "Type": "CODEPIPELINE"
-        },
-        "EncryptionKey": "alias/aws/s3"
-      },
-      "Metadata": {
-        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Resource"
-      }
-    },
-    "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930": {
-      "Type": "AWS::IAM::Role",
-      "Properties": {
-        "AssumeRolePolicyDocument": {
-          "Statement": [
-            {
-              "Action": "sts:AssumeRole",
-              "Effect": "Allow",
-              "Principal": {
-                "AWS": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":iam::315997497220:root"
-                    ]
-                  ]
-                }
-              }
-            }
-          ],
-          "Version": "2012-10-17"
-        }
-      },
-      "Metadata": {
-        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/CodePipelineActionRole/Resource"
-      }
-    },
-    "pipelinePipelineBetaStageunittestCodePipelineActionRoleDefaultPolicy4BE3E9E0": {
-      "Type": "AWS::IAM::Policy",
-      "Properties": {
-        "PolicyDocument": {
-          "Statement": [
-            {
-              "Action": [
-                "codebuild:BatchGetBuilds",
-                "codebuild:StartBuild",
-                "codebuild:StopBuild"
-              ],
-              "Effect": "Allow",
-              "Resource": {
-                "Fn::GetAtt": [
-                  "pipelinePipelineBetaStageunittest29A04AB2",
-                  "Arn"
-                ]
-              }
-            }
-          ],
-          "Version": "2012-10-17"
-        },
-        "PolicyName": "pipelinePipelineBetaStageunittestCodePipelineActionRoleDefaultPolicy4BE3E9E0",
-        "Roles": [
-          {
-            "Ref": "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930"
-          }
-        ]
-      },
-      "Metadata": {
-        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/CodePipelineActionRole/DefaultPolicy/Resource"
-      }
-    },
     "pipelinePipelineBetaStageirfanstackPrepareCodePipelineActionRoleD640BE80": {
       "Type": "AWS::IAM::Role",
       "Properties": {
@@ -1144,6 +915,235 @@
       },
       "Metadata": {
         "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/irfanstack.Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageunittestRole6F470DD5": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "codebuild.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Role/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageunittestRoleDefaultPolicy2C39ECA3": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":logs:us-east-2:315997497220:log-group:/aws/codebuild/",
+                      {
+                        "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
+                      }
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":logs:us-east-2:315997497220:log-group:/aws/codebuild/",
+                      {
+                        "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
+                      },
+                      ":*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": [
+                "codebuild:CreateReportGroup",
+                "codebuild:CreateReport",
+                "codebuild:UpdateReport",
+                "codebuild:BatchPutTestCases",
+                "codebuild:BatchPutCodeCoverages"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":codebuild:us-east-2:315997497220:report-group/",
+                    {
+                      "Ref": "pipelinePipelineBetaStageunittest29A04AB2"
+                    },
+                    "-*"
+                  ]
+                ]
+              }
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineArtifactsBucketC2CD5B5E",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "pipelinePipelineArtifactsBucketC2CD5B5E",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "pipelinePipelineBetaStageunittestRoleDefaultPolicy2C39ECA3",
+        "Roles": [
+          {
+            "Ref": "pipelinePipelineBetaStageunittestRole6F470DD5"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Role/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageunittest29A04AB2": {
+      "Type": "AWS::CodeBuild::Project",
+      "Properties": {
+        "Artifacts": {
+          "Type": "CODEPIPELINE"
+        },
+        "Environment": {
+          "ComputeType": "BUILD_GENERAL1_SMALL",
+          "Image": "aws/codebuild/standard:5.0",
+          "ImagePullCredentialsType": "CODEBUILD",
+          "PrivilegedMode": false,
+          "Type": "LINUX_CONTAINER"
+        },
+        "ServiceRole": {
+          "Fn::GetAtt": [
+            "pipelinePipelineBetaStageunittestRole6F470DD5",
+            "Arn"
+          ]
+        },
+        "Source": {
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"cd irfanhassan_skipq2021/Sprint2\",\n        \"pip install -r requirements.txt\",\n        \"pip install pytest\",\n        \"pytest unitTest\",\n        \"pytest intigrationTest\"\n      ]\n    }\n  }\n}",
+          "Type": "CODEPIPELINE"
+        },
+        "EncryptionKey": "alias/aws/s3"
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/unit_test/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/CodePipelineActionRole/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageunittestCodePipelineActionRoleDefaultPolicy4BE3E9E0": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "codebuild:BatchGetBuilds",
+                "codebuild:StartBuild",
+                "codebuild:StopBuild"
+              ],
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineBetaStageunittest29A04AB2",
+                  "Arn"
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "pipelinePipelineBetaStageunittestCodePipelineActionRoleDefaultPolicy4BE3E9E0",
+        "Roles": [
+          {
+            "Ref": "pipelinePipelineBetaStageunittestCodePipelineActionRoleB7EA8930"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipQPpielineStack/pipeline/Pipeline/BetaStage/unit_test/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutationRole91820177": {
