@@ -1,0 +1,521 @@
+{
+  "version": "15.0.0",
+  "artifacts": {
+    "IrfanSkipQPpielineStackBetaStageirfanstackF9B84019": {
+      "type": "aws:cloudformation:stack",
+      "environment": "aws://315997497220/us-east-2",
+      "properties": {
+        "templateFile": "IrfanSkipQPpielineStackBetaStageirfanstackF9B84019.template.json",
+        "validateOnSynth": false,
+        "stackName": "BetaStage-irfanstack"
+      },
+      "metadata": {
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack": [
+          {
+            "type": "aws:cdk:asset",
+            "data": {
+              "path": "../asset.6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80",
+              "id": "6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80",
+              "packaging": "zip",
+              "sourceHash": "6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80",
+              "s3BucketParameter": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80S3BucketCBD0DE4A",
+              "s3KeyParameter": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80S3VersionKeyE2A7F723",
+              "artifactHashParameter": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80ArtifactHash2FD377E0"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/construct-compat.js:416:62)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:180:29)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:90:43)",
+              "new Asset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:43:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/code.js:269:26)",
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:100:33)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/lambda-role/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaroleDFE21467",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-iam/lib/role.js:74:22)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/FirstHellammbda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "FirstHellammbdaDB9FC3BC",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:145:26)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AssetParameters/6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80/S3Bucket": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80S3BucketCBD0DE4A",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:12:36)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:90:43)",
+              "new Asset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:43:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/code.js:269:26)",
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:100:33)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AssetParameters/6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80/S3VersionKey": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80S3VersionKeyE2A7F723",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:16:35)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:90:43)",
+              "new Asset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:43:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/code.js:269:26)",
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:100:33)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AssetParameters/6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80/ArtifactHash": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AssetParameters6df97597bf1a7722f57383fa4250cb3caaf482b5bcd84204774db48433c69a80ArtifactHash2FD377E0",
+            "trace": [
+              "new FileAssetParameters (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/asset-parameters.js:20:38)",
+              "LegacyStackSynthesizer.doAddFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:167:22)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:86:25)",
+              "LegacyStackSynthesizer.addFileAsset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stack-synthesizers/legacy.js:90:43)",
+              "new Asset (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-s3-assets/lib/asset.js:43:44)",
+              "AssetCode.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/code.js:269:26)",
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:100:33)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/MonitorwebHealth/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MonitorwebHealth28B40C7A",
+            "trace": [
+              "new Rule (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-events/lib/rule.js:37:26)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/MonitorwebHealth/AllowEventRuleIrfanSkipQPpielineStackBetaStageirfanstackFirstHellammbdaEA4AB0CD": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "MonitorwebHealthAllowEventRuleIrfanSkipQPpielineStackBetaStageirfanstackFirstHellammbdaEA4AB0CD1EE875B1",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:44:9)",
+              "Object.addLambdaPermission (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-events-targets/lib/util.js:63:17)",
+              "LambdaFunction.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-events-targets/lib/lambda.js:29:16)",
+              "Rule.addTarget (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-events/lib/rule.js:91:36)",
+              "new Rule (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-events/lib/rule.js:54:18)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/irfanhassantable": [
+          {
+            "type": "aws:cdk:hasPhysicalName",
+            "data": {
+              "Ref": "irfanhassantable9BB9EE06"
+            },
+            "trace": [
+              "ConstructNode.addMetadata (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/construct-compat.js:416:62)",
+              "new Table (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:491:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/irfanhassantable/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "irfanhassantable9BB9EE06",
+            "trace": [
+              "new Table (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:464:22)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/lambda-role-db/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaroledb8F96FA37",
+            "trace": [
+              "new Role (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-iam/lib/role.js:74:22)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/lambda-role-db/DefaultPolicy/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "lambdaroledbDefaultPolicyAF35499B",
+            "trace": [
+              "new Policy (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-iam/lib/policy.js:58:26)",
+              "Role.addToPrincipalPolicy (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-iam/lib/role.js:213:34)",
+              "Function.addToPrincipal (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-iam/lib/grant.js:93:65)",
+              "Table.combinedGrant (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:391:35)",
+              "Table.grantFullAccess (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-dynamodb/lib/table.js:192:21)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:134",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:107",
+              "Kernel._ensureSync (/tmp/tmp_zw3h0uf/lib/program.js:8841:28)",
+              "Kernel.invoke (/tmp/tmp_zw3h0uf/lib/program.js:8248:34)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/secondHellammbda/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "secondHellammbda69B4B3E3",
+            "trace": [
+              "new Function (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function.js:145:26)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/secondHellammbda/AllowInvoke:IrfanSkipQPpielineStackBetaStageirfanstackWebHealth7A33DE52": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "secondHellammbdaAllowInvokeIrfanSkipQPpielineStackBetaStageirfanstackWebHealth7A33DE52C9E514ED",
+            "trace": [
+              "Function.addPermission (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:44:9)",
+              "LambdaSubscription.bind (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns-subscriptions/lib/lambda.js:38:17)",
+              "Topic.addSubscription (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:24:49)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:134",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:107",
+              "Kernel._ensureSync (/tmp/tmp_zw3h0uf/lib/program.js:8841:28)",
+              "Kernel.invoke (/tmp/tmp_zw3h0uf/lib/program.js:8248:34)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/secondHellammbda/WebHealth/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "secondHellammbdaWebHealth1AFE3F74",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/subscription.js:51:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:35:9)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:134",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:107",
+              "Kernel._ensureSync (/tmp/tmp_zw3h0uf/lib/program.js:8841:28)",
+              "Kernel.invoke (/tmp/tmp_zw3h0uf/lib/program.js:8248:34)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/WebHealth/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebHealthF43679AB",
+            "trace": [
+              "new Topic (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/topic.js:47:26)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "WebHealthmuhammadirfanhassansskipqorgE7DB7B4C",
+            "trace": [
+              "new Subscription (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/subscription.js:51:9)",
+              "Topic.addSubscription (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-sns/lib/topic-base.js:35:9)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:134",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:107",
+              "Kernel._ensureSync (/tmp/tmp_zw3h0uf/lib/program.js:8841:28)",
+              "Kernel.invoke (/tmp/tmp_zw3h0uf/lib/program.js:8248:34)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AvailabiltyAlarm www.skipq.org/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AvailabiltyAlarmwwwskipqorg7696051F",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/latencyAlarm www.skipq.org/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "latencyAlarmwwwskipqorg116105C0",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AvailabiltyAlarm www.alibaba.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AvailabiltyAlarmwwwalibabacom3F67D7EB",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/latencyAlarm www.alibaba.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "latencyAlarmwwwalibabacom395B6622",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AvailabiltyAlarm www.binance.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AvailabiltyAlarmwwwbinancecom9391ED13",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/latencyAlarm www.binance.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "latencyAlarmwwwbinancecom4587AABF",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/AvailabiltyAlarm www.apple.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "AvailabiltyAlarmwwwapplecom350C0D5D",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/latencyAlarm www.apple.com/Resource": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "latencyAlarmwwwapplecom38B815D7",
+            "trace": [
+              "new Alarm (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/aws-cloudwatch/lib/alarm.js:76:23)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8432:58",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "Kernel._create (/tmp/tmp_zw3h0uf/lib/program.js:8432:34)",
+              "Kernel.create (/tmp/tmp_zw3h0uf/lib/program.js:8173:29)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ],
+        "/IrfanSkipQPpielineStack/BetaStage/irfanstack/CDKMetadata/Default": [
+          {
+            "type": "aws:cdk:logicalId",
+            "data": "CDKMetadata",
+            "trace": [
+              "new MetadataResource (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/metadata-resource.js:22:30)",
+              "/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:139:9",
+              "visit (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:200:9)",
+              "visit (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:197:9)",
+              "injectMetadataResources (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:128:5)",
+              "Object.synthesize (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:17:5)",
+              "Stage.synth (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stage.js:103:41)",
+              "synthNestedAssemblies (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:56:19)",
+              "synthNestedAssemblies (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:59:13)",
+              "Object.synthesize (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/private/synthesis.js:15:5)",
+              "App.synth (/tmp/jsii-kernel-v1F6Zz/node_modules/@aws-cdk/core/lib/stage.js:103:41)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:134",
+              "Kernel._wrapSandboxCode (/tmp/tmp_zw3h0uf/lib/program.js:8860:24)",
+              "/tmp/tmp_zw3h0uf/lib/program.js:8248:107",
+              "Kernel._ensureSync (/tmp/tmp_zw3h0uf/lib/program.js:8841:28)",
+              "Kernel.invoke (/tmp/tmp_zw3h0uf/lib/program.js:8248:34)",
+              "KernelHost.processRequest (/tmp/tmp_zw3h0uf/lib/program.js:9757:36)",
+              "KernelHost.run (/tmp/tmp_zw3h0uf/lib/program.js:9720:22)",
+              "Immediate._onImmediate (/tmp/tmp_zw3h0uf/lib/program.js:9721:46)",
+              "processImmediate (node:internal/timers:464:21)"
+            ]
+          }
+        ]
+      },
+      "displayName": "IrfanSkipQPpielineStack/BetaStage/irfanstack"
+    }
+  }
+}

@@ -21,7 +21,9 @@ class IrfanSkipQPpielineStack(cdk.Stack):
                             )
         pipeline = pipelines.CodePipeline(self,'pipeline',synth=synth)
         betaStage = IrfanSkipQPpielineStage(self, "BetaStage", env = { 'account': '315997497220', 'region': 'us-east-2'})
-        #test = pipeline.ShellStep('unit_test',"cd irfanhassan_skipq2021/Sprint2", "pip install -r requirements.txt",
-        #"pip install pytest", "pytest unitTest","pytest intigrationTest")
-        #pipeline.add_stage(beta_stage)
+        test = pipeline.ShellStep('unit_test',"cd irfanhassan_skipq2021/Sprint2", "pip install -r requirements.txt",
+        "pip install pytest", "pytest unitTest","pytest intigrationTest")
+        pipeline.add_stage(betaStage, pre =[test])
+        
+        
         
