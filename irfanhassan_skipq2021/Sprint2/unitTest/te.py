@@ -6,7 +6,6 @@ def lambdaTest():
     app = core.app()
     IrfanSkipQProject1Stack(app, 'Stack')
     temp = app.synth().get_stack_by_name('Stack').template
-    
     lambda_function = [resource for resource in temp['Resources'].values  if resource['type']=="AWS::Lambda::Function"]
     assert len(lambda_function)==2
     
