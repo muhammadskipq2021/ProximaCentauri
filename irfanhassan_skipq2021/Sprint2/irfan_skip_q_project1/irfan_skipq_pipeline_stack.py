@@ -3,7 +3,7 @@ from aws_cdk import (
     pipelines,
     aws_codepipeline_actions as cpactions
 )
-from irfan_skip_q_project1 import IrfanSkipQPpielineStage
+from irfan_skip_q_project1.irfan_skip_q_project1_stage import IrfanSkipQPpielineStage
 
 class IrfanSkipQPpielineStack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
