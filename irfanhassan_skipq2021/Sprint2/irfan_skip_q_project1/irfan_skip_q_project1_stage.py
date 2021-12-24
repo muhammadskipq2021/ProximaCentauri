@@ -6,4 +6,4 @@ class IrfanSkipQPpielineStage(cdk.Stage):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
         
-        irfan_skip_q_project1_stack =  IrfanSkipQProject1Stack(self,'IrfanSkipQProject1Stack')
+        irfan_stack =  IrfanSkipQProject1Stack(self,'IrfanSkipQProject1Stack')
