@@ -198,6 +198,16 @@
                   ]
                 ]
               }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineProdStagePromoteToProdCodePipelineActionRoleA1F074B1",
+                  "Arn"
+                ]
+              }
             }
           ],
           "Version": "2012-10-17"
@@ -453,6 +463,100 @@
               }
             ],
             "Name": "BetaStag"
+          },
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Approval",
+                  "Owner": "AWS",
+                  "Provider": "Manual",
+                  "Version": "1"
+                },
+                "Name": "PromoteToProd",
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineProdStagePromoteToProdCodePipelineActionRoleA1F074B1",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 1
+              },
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "ProdStage-irfanskipqstack",
+                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
+                  "RoleArn": {
+                    "Fn::Join": [
+                      "",
+                      [
+                        "arn:",
+                        {
+                          "Ref": "AWS::Partition"
+                        },
+                        ":iam::315997497220:role/cdk-mirfan-cfn-exec-role-315997497220-us-east-2"
+                      ]
+                    ]
+                  },
+                  "ActionMode": "CHANGE_SET_REPLACE",
+                  "ChangeSetName": "PipelineChange",
+                  "TemplatePath": "synth_Output::assembly-IrfanPipelineStack-ProdStage/IrfanPipelineStackProdStageirfanskipqstack692E720D.template.json"
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "synth_Output"
+                  }
+                ],
+                "Name": "irfanskipqstack.Prepare",
+                "RoleArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                    ]
+                  ]
+                },
+                "RunOrder": 2
+              },
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "ProdStage-irfanskipqstack",
+                  "ActionMode": "CHANGE_SET_EXECUTE",
+                  "ChangeSetName": "PipelineChange"
+                },
+                "Name": "irfanskipqstack.Deploy",
+                "RoleArn": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                    ]
+                  ]
+                },
+                "RunOrder": 3
+              }
+            ],
+            "Name": "ProdStage"
           }
         ],
         "ArtifactStore": {
@@ -1058,6 +1162,37 @@
       },
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineProdStagePromoteToProdCodePipelineActionRoleA1F074B1": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/ProdStage/PromoteToProd/CodePipelineActionRole/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutationRole91820177": {
