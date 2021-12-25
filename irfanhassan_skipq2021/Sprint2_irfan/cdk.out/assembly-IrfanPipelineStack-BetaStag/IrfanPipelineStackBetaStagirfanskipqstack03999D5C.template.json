@@ -51,7 +51,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "85fd50205967ec86d24ab7f0c1f8459214582c7e638cf85023158ae0b707fe39.zip"
+          "S3Key": "46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -67,7 +67,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/FirstHellammbda/Resource",
-        "aws:asset:path": "../asset.85fd50205967ec86d24ab7f0c1f8459214582c7e638cf85023158ae0b707fe39",
+        "aws:asset:path": "../asset.46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
@@ -133,8 +133,7 @@
         "ProvisionedThroughput": {
           "ReadCapacityUnits": 5,
           "WriteCapacityUnits": 5
-        },
-        "TableName": "Irfandynamodb_Table"
+        }
       },
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
@@ -251,7 +250,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "85fd50205967ec86d24ab7f0c1f8459214582c7e638cf85023158ae0b707fe39.zip"
+          "S3Key": "46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -268,7 +267,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/Resource",
-        "aws:asset:path": "../asset.85fd50205967ec86d24ab7f0c1f8459214582c7e638cf85023158ae0b707fe39",
+        "aws:asset:path": "../asset.46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
