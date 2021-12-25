@@ -102,6 +102,26 @@
                   "Arn"
                 ]
               }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineBetaStagePrepareCodePipelineActionRoleEB24D8F8",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineBetaStageDeployCodePipelineActionRole174FBCF7",
+                  "Arn"
+                ]
+              }
             }
           ],
           "Version": "2012-10-17"
@@ -167,7 +187,7 @@
                   "ProjectName": {
                     "Ref": "pipelinePipelineBuildsynthCdkBuildProject2CCFF688"
                   },
-                  "EnvironmentVariables": "[{\"name\":\"_PROJECT_CONFIG_HASH\",\"type\":\"PLAINTEXT\",\"value\":\"dc8e75fb50ac46562591e8486ae78011e99a03e79c625f6b008c86bca6559685\"}]"
+                  "EnvironmentVariables": "[{\"name\":\"_PROJECT_CONFIG_HASH\",\"type\":\"PLAINTEXT\",\"value\":\"7ebe88c44535b8353f9f19c1ceb5dc09dfbedfbd6720afe7bc484401ab9d2aad\"}]"
                 },
                 "InputArtifacts": [
                   {
@@ -222,6 +242,66 @@
               }
             ],
             "Name": "UpdatePipeline"
+          },
+          {
+            "Actions": [
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "BetaStage-irfanstack",
+                  "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
+                  "RoleArn": {
+                    "Fn::GetAtt": [
+                      "pipelinePipelineBetaStagePrepareRole6CF6F593",
+                      "Arn"
+                    ]
+                  },
+                  "ActionMode": "CHANGE_SET_REPLACE",
+                  "ChangeSetName": "PipelineChange",
+                  "TemplatePath": "synth_Output::assembly-IrfanSkipqPipelineStack1-BetaStage/IrfanSkipqPipelineStack1BetaStageirfanstack463F270B.template.json"
+                },
+                "InputArtifacts": [
+                  {
+                    "Name": "synth_Output"
+                  }
+                ],
+                "Name": "Prepare",
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineBetaStagePrepareCodePipelineActionRoleEB24D8F8",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 1
+              },
+              {
+                "ActionTypeId": {
+                  "Category": "Deploy",
+                  "Owner": "AWS",
+                  "Provider": "CloudFormation",
+                  "Version": "1"
+                },
+                "Configuration": {
+                  "StackName": "BetaStage-irfanstack",
+                  "ActionMode": "CHANGE_SET_EXECUTE",
+                  "ChangeSetName": "PipelineChange"
+                },
+                "Name": "Deploy",
+                "RoleArn": {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineBetaStageDeployCodePipelineActionRole174FBCF7",
+                    "Arn"
+                  ]
+                },
+                "RunOrder": 2
+              }
+            ],
+            "Name": "BetaStage"
           }
         ],
         "ArtifactStore": {
@@ -399,7 +479,7 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"cd irfanhassan_skipq2021/Sprint1\",\n        \"pip install aws-cdk.aws_cloudwatch_actions==1.135.0\",\n        \"pip install -r requirements.txt \",\n        \"npm install -g aws-cdk\",\n        \"cdk synth\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"base-directory\": \"irfanhassan_skipq2021/Sprint2/cdk.out\",\n    \"files\": \"**/*\"\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"build\": {\n      \"commands\": [\n        \"cd irfanhassan_skipq2021/Sprint2\",\n        \"pip install aws-cdk.aws_cloudwatch_actions==1.135.0\",\n        \"pip install -r requirements.txt \",\n        \"npm install -g aws-cdk\",\n        \"cdk synth\"\n      ]\n    }\n  },\n  \"artifacts\": {\n    \"base-directory\": \"irfanhassan_skipq2021/Sprint2/cdk.out\",\n    \"files\": \"**/*\"\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "EncryptionKey": "alias/aws/s3"
@@ -534,6 +614,271 @@
       },
       "Metadata": {
         "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineBetaStagePrepareCodePipelineActionRoleEB24D8F8": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Prepare/CodePipelineActionRole/Resource"
+      }
+    },
+    "pipelinePipelineBetaStagePrepareCodePipelineActionRoleDefaultPolicy925687AC": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": "iam:PassRole",
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::GetAtt": [
+                  "pipelinePipelineBetaStagePrepareRole6CF6F593",
+                  "Arn"
+                ]
+              }
+            },
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineArtifactsBucketC2CD5B5E",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "pipelinePipelineArtifactsBucketC2CD5B5E",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": [
+                "cloudformation:CreateChangeSet",
+                "cloudformation:DeleteChangeSet",
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:DescribeStacks"
+              ],
+              "Condition": {
+                "StringEqualsIfExists": {
+                  "cloudformation:ChangeSetName": "PipelineChange"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":cloudformation:us-east-2:315997497220:stack/BetaStage-irfanstack/*"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "pipelinePipelineBetaStagePrepareCodePipelineActionRoleDefaultPolicy925687AC",
+        "Roles": [
+          {
+            "Ref": "pipelinePipelineBetaStagePrepareCodePipelineActionRoleEB24D8F8"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Prepare/CodePipelineActionRole/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineBetaStagePrepareRole6CF6F593": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "Service": "cloudformation.amazonaws.com"
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Prepare/Role/Resource"
+      }
+    },
+    "pipelinePipelineBetaStagePrepareRoleDefaultPolicy7E03E990": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "s3:GetObject*",
+                "s3:GetBucket*",
+                "s3:List*"
+              ],
+              "Effect": "Allow",
+              "Resource": [
+                {
+                  "Fn::GetAtt": [
+                    "pipelinePipelineArtifactsBucketC2CD5B5E",
+                    "Arn"
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      {
+                        "Fn::GetAtt": [
+                          "pipelinePipelineArtifactsBucketC2CD5B5E",
+                          "Arn"
+                        ]
+                      },
+                      "/*"
+                    ]
+                  ]
+                }
+              ]
+            },
+            {
+              "Action": "*",
+              "Effect": "Allow",
+              "Resource": "*"
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "pipelinePipelineBetaStagePrepareRoleDefaultPolicy7E03E990",
+        "Roles": [
+          {
+            "Ref": "pipelinePipelineBetaStagePrepareRole6CF6F593"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Prepare/Role/DefaultPolicy/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageDeployCodePipelineActionRole174FBCF7": {
+      "Type": "AWS::IAM::Role",
+      "Properties": {
+        "AssumeRolePolicyDocument": {
+          "Statement": [
+            {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:",
+                      {
+                        "Ref": "AWS::Partition"
+                      },
+                      ":iam::315997497220:root"
+                    ]
+                  ]
+                }
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        }
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Deploy/CodePipelineActionRole/Resource"
+      }
+    },
+    "pipelinePipelineBetaStageDeployCodePipelineActionRoleDefaultPolicyDAF81D93": {
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyDocument": {
+          "Statement": [
+            {
+              "Action": [
+                "cloudformation:DescribeChangeSet",
+                "cloudformation:DescribeStacks",
+                "cloudformation:ExecuteChangeSet"
+              ],
+              "Condition": {
+                "StringEqualsIfExists": {
+                  "cloudformation:ChangeSetName": "PipelineChange"
+                }
+              },
+              "Effect": "Allow",
+              "Resource": {
+                "Fn::Join": [
+                  "",
+                  [
+                    "arn:",
+                    {
+                      "Ref": "AWS::Partition"
+                    },
+                    ":cloudformation:us-east-2:315997497220:stack/BetaStage-irfanstack/*"
+                  ]
+                ]
+              }
+            }
+          ],
+          "Version": "2012-10-17"
+        },
+        "PolicyName": "pipelinePipelineBetaStageDeployCodePipelineActionRoleDefaultPolicyDAF81D93",
+        "Roles": [
+          {
+            "Ref": "pipelinePipelineBetaStageDeployCodePipelineActionRole174FBCF7"
+          }
+        ]
+      },
+      "Metadata": {
+        "aws:cdk:path": "IrfanSkipqPipelineStack1/pipeline/Pipeline/BetaStage/Deploy/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutationRole91820177": {
