@@ -7,9 +7,14 @@ def lambda_handler(event, context):
     client = boto3.client('dynamodb')
     message = event['Records'][0]['Sns']
     msg = json.loads(message['Message'])
-    #client.put_item(
-    #TableName = constant_.table_name,
-    #Item={
-    #    'Timestamp':{'S' : message['Timestamp']},
-    #    'Reason':{'S':msg['NewStateReason']}
-    #})
+    timestamp=message['Timestamp']
+    alarm=message['AlarmName']
+    #if alarm[0]=='B':
+    #    client.put_item(TableName = "Beta-infraStack-TableCD117FA1-10BTARD7DGVYY",Item={
+    #                            'Timestamp':{'S' : message['Timestamp']},
+     #                           'Reason':{'S':msg['NewStateReason']}})
+    #else:
+    #    client.put_item(TableName = "Beta-infraStack-TableCD117FA1-10BTARD7DGVYY",Item={
+     #                           'Timestamp':{'S' : message['Timestamp']},
+     #                           'Reason':{'S':msg['NewStateReason']}}
+    
