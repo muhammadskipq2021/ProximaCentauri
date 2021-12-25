@@ -22,7 +22,7 @@ class IrfanPipelineStack(core.Stack):
         
         betaStage = IrfanStage(self, "BetaStag", env = { 'account': '315997497220', 'region': 'us-east-2'})
         test = pipelines.ShellStep('unit_test',commands=["cd irfanhassan_skipq2021/Sprint2_irfan", "pip install -r requirements.txt",
-        "pip install pytest", "pytest unitTest","pytest intigrationTest"])
+        "pip install pytest", "pytest unittest","pytest intigrationTest"])
         pipeline.add_stage(betaStage, pre = [test])
         
         
