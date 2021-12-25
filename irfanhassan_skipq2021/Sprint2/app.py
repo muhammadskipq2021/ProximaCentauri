@@ -13,7 +13,7 @@ from aws_cdk import core
 from irfan_skip_q_project1.irfan_skipq_pipeline_stack import IrfanSkipqPipelineStack
 
 app = core.App()
-IrfanSkipqPipelineStack(app, "IrfanSkipqPipelineStack1",env=core.Environment(account='315997497220', region='us-east-2'))
+IrfanSkipqPipelineStack(app, "IrfanSkipqPipelineStack51",env=core.Environment(account='315997497220', region='us-east-2'))
     # If you don't specify 'env', this stack will be environment-agnostic.
     # Account/Region-dependent features and context lookups will not work,
     # but a single synthesized template can be deployed anywhere.
