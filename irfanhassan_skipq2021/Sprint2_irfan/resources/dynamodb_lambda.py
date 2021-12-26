@@ -9,12 +9,16 @@ def lambda_handler(event, context):
     msg = json.loads(message['Message'])
     timestamp=message['Timestamp']
     alarm=message['AlarmName']
-    #if alarm[0]=='B':
-    #    client.put_item(TableName = "Beta-infraStack-TableCD117FA1-10BTARD7DGVYY",Item={
-    #                            'Timestamp':{'S' : message['Timestamp']},
-     #                           'Reason':{'S':msg['NewStateReason']}})
-    #else:
-    #    client.put_item(TableName = "Beta-infraStack-TableCD117FA1-10BTARD7DGVYY",Item={
-     #                           'Timestamp':{'S' : message['Timestamp']},
-     #                           'Reason':{'S':msg['NewStateReason']}}
+    if alarm[0]=='B':
+        client.put_item(TableName = "Beta-infraStack-TableCD117FA1-10BTARD7DGVYY",
+        Item={
+             'Timestamp':{'S' : message['Timestamp']},
+              'Reason':{'S':msg['NewStateReason']
+              }})
+    else:
+        client.put_item(TableName = "ProdStage-irfanskipqstack-irfanhassantable9BB9EE06-HSG5CFZS1QY0",
+        Item={
+              'Timestamp':{'S' : message['Timestamp']},
+               'Reason':{'S':msg['NewStateReason']
+               }})
     
