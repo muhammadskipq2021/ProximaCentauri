@@ -29,7 +29,7 @@ class Sprint2IrfanStack(cdk.Stack):
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
         #creating dynamodb table 
-        dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
+        dynamo_table=self.create_table(id='irfanhassantable1', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
         db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
