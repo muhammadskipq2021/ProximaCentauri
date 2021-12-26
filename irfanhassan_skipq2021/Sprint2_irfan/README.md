@@ -65,7 +65,7 @@ now all required requirements are done on machine.
 To check that your CDK pipeline is created successfully, open CodePipeline in AWS services  
 * ### Results
 Wwhen CI/CD pipeline is implemented successfully then open cloud watch to observe the web health of URLs and then check Email and dynamo DB Tables to see details of the alarm notifications.
-#### Author
+### Author
 Muhammad Irfan Hassan Trainee @skipQ  muhammad.irfan.hassan.s@skipq.org
 
 Thanks! Enjoy:)
