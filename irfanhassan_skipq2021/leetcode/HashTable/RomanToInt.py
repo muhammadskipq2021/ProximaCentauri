@@ -1,3 +1,4 @@
+#roman to intiger conversion
 class Solution:
     def romanToInt(self, s: str) -> int:
         map_ = {"I":1 ,"V":5, "X":10, "L":50, "C":100, "D":500, "M":1000}
@@ -15,5 +16,5 @@ class Solution:
         return val
         
 test=Solution()
-x=input("enter roman number = ")
+x=input("enter Roman number = ")
 print(test.romanToInt(x))

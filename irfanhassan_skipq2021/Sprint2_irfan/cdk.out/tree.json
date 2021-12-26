@@ -2156,7 +2156,7 @@
                             },
                             "source": {
                               "type": "CODEPIPELINE",
-                              "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.assets.json\\\" --verbose publish \\\"f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}"
+                              "buildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.assets.json\\\" --verbose publish \\\"1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}"
                             },
                             "encryptionKey": "alias/aws/s3"
                           }
@@ -2301,7 +2301,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-                              "s3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+                              "s3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [
@@ -2387,13 +2387,13 @@
                       "version": "1.135.0"
                     }
                   },
-                  "irfanhassantable": {
-                    "id": "irfanhassantable",
-                    "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable",
+                  "irfanhassantable1": {
+                    "id": "irfanhassantable1",
+                    "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable1",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable/Resource",
+                        "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable1/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
                           "aws:cdk:cloudformation:props": {
@@ -2422,7 +2422,7 @@
                       },
                       "ScalingRole": {
                         "id": "ScalingRole",
-                        "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable/ScalingRole",
+                        "path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable1/ScalingRole",
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.Resource",
                           "version": "1.135.0"
@@ -2531,7 +2531,7 @@
                                       "Resource": [
                                         {
                                           "Fn::GetAtt": [
-                                            "irfanhassantable9BB9EE06",
+                                            "irfanhassantable1168CD430",
                                             "Arn"
                                           ]
                                         },
@@ -2616,7 +2616,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-                              "s3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+                              "s3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [
@@ -3333,7 +3333,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-                              "s3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+                              "s3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [
@@ -3419,13 +3419,13 @@
                       "version": "1.135.0"
                     }
                   },
-                  "irfanhassantable": {
-                    "id": "irfanhassantable",
-                    "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable",
+                  "irfanhassantable1": {
+                    "id": "irfanhassantable1",
+                    "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable1",
                     "children": {
                       "Resource": {
                         "id": "Resource",
-                        "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable/Resource",
+                        "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable1/Resource",
                         "attributes": {
                           "aws:cdk:cloudformation:type": "AWS::DynamoDB::Table",
                           "aws:cdk:cloudformation:props": {
@@ -3454,7 +3454,7 @@
                       },
                       "ScalingRole": {
                         "id": "ScalingRole",
-                        "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable/ScalingRole",
+                        "path": "IrfanPipelineStack/ProdStage/irfanskipqstack/irfanhassantable1/ScalingRole",
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.Resource",
                           "version": "1.135.0"
@@ -3563,7 +3563,7 @@
                                       "Resource": [
                                         {
                                           "Fn::GetAtt": [
-                                            "irfanhassantable9BB9EE06",
+                                            "irfanhassantable1168CD430",
                                             "Arn"
                                           ]
                                         },
@@ -3648,7 +3648,7 @@
                           "aws:cdk:cloudformation:props": {
                             "code": {
                               "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-                              "s3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+                              "s3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
                             },
                             "role": {
                               "Fn::GetAtt": [

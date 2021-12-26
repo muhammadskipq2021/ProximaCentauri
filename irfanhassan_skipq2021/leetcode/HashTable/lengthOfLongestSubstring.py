@@ -1,3 +1,4 @@
+#finding length of substring having unique characters
 class Solution:
 	def lengthOfLongestSubstring(self, s):
 		res = 0

@@ -1,7 +1,7 @@
 {
   "version": "15.0.0",
   "files": {
-    "3908807cbed196e4fa9b871d35bc607bc529ca0ed74a3aad00885a82c7bbc847": {
+    "5590169abe5c75cfd90553f4ccd8b9170c261a97b2b57aa582006a4bf280b2d6": {
       "source": {
         "path": "IrfanPipelineStack.template.json",
         "packaging": "file"
@@ -9,7 +9,7 @@
       "destinations": {
         "315997497220-us-east-2": {
           "bucketName": "cdk-mirfan-assets-315997497220-us-east-2",
-          "objectKey": "3908807cbed196e4fa9b871d35bc607bc529ca0ed74a3aad00885a82c7bbc847.json",
+          "objectKey": "5590169abe5c75cfd90553f4ccd8b9170c261a97b2b57aa582006a4bf280b2d6.json",
           "region": "us-east-2",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
         }

@@ -51,7 +51,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+          "S3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -67,7 +67,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/FirstHellammbda/Resource",
-        "aws:asset:path": "../asset.f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d",
+        "aws:asset:path": "../asset.1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
@@ -115,7 +115,7 @@
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/MonitorwebHealth/AllowEventRuleIrfanPipelineStackBetaStagirfanskipqstackFirstHellammbda3574C0C2"
       }
     },
-    "irfanhassantable9BB9EE06": {
+    "irfanhassantable1168CD430": {
       "Type": "AWS::DynamoDB::Table",
       "Properties": {
         "KeySchema": [
@@ -138,7 +138,7 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable/Resource"
+        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable1/Resource"
       }
     },
     "lambdaroledb8F96FA37": {
@@ -222,7 +222,7 @@
               "Resource": [
                 {
                   "Fn::GetAtt": [
-                    "irfanhassantable9BB9EE06",
+                    "irfanhassantable1168CD430",
                     "Arn"
                   ]
                 },
@@ -250,7 +250,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d.zip"
+          "S3Key": "1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -267,7 +267,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/Resource",
-        "aws:asset:path": "../asset.f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d",
+        "aws:asset:path": "../asset.1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }

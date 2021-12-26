@@ -1545,7 +1545,7 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.assets.json\\\" --verbose publish \\\"f7ac22ef001423d9a6890331cc37ba28a31abfedd6bf3f7488a7bd17276dd51d:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.assets.json\\\" --verbose publish \\\"1f848e76939ae9325e7c88abe41c69afb466522dc637e3356d7e23bd59a6661b:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "EncryptionKey": "alias/aws/s3"
