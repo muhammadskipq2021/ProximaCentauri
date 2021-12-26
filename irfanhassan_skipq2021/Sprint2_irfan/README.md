@@ -8,67 +8,64 @@
 
 
 ## Project Description
-This aim of this project is to create multi-stage pipeline having Beta and Prod stage using CDK. pipeline will get webHealth monitor application'source code from github repository and will automate the process of building, testing and deploying application. If we add new stacks/stage or update anything in application, the pipeline automatically reconfigures itself to deploy those new stages and stacks. 
+In this project, I create CI/CD pipeline having Beta and Prod stage using CDK. I set up the source from my Github repository for CI/CD Pipeline. CI/CDpipeline will get the web health monitor application's source code from the GitHub repository and will automate the process of building, testing, and deploying the application. First, it installs requirements for source code and then synth the code. In the Beta stage,  it runs the unit test and integration test. After passing through the unittest, it deploys the source code. In Prodstage, it asks for manual approval then deploys the source code. When adding new stacks/stages or updating anything in the application, CI/CD pipeline automatically reconfigures itself to deploy those new stages and stacks.
 
 ## Technologies 
-Project is created with 
+Project is created with follwoing AWS services
 * Lambda
 * CloudWatch
 * DynamoDB
 * SNS
 * Cloud9
 * S3
+* CodePipeline
+* Secret Manager
+* CloudFormation
 
 ## SetUp
 To run this project, follow these steps 
-### Environment creation on AWS
-First of all login in aws.amazon and create a virtual machine. 
-### Update Python and AWS 
-check version of python and if it is old version check new version is available then make new version as default version using these commands.
+* ###  Environment creation on AWS
+First of all login in aws.amazon and create a virtual machine and install all requirements.
+* ### Store Personal access tokens 
+To get access to the Github repository, you have to generate Personal access tokens and then store Personal access tokens in AWS Secret Manager.
+* ### Setup Source
+At the beginning of the project, it's essential to set up the source. Store the code in your GitHub repository. Add the GitHub repository path in the Source of the pipeline stack.
+* ### Clone Local Machine to Github repository
+To clone the github repository to local machine run this command
+```
+$ git clone <github repository url>
+```
+Then chnage directory to your project folder using this command.
+```
+$ cd <projectfolder path>
+```
+if you add any thing to project then commit and push code to github repo using these command. 
  ```
- $ python --version
- $ python3 --version
- $ source ~/.bashrc
+ $ git status
+ $ git add .
+ $ git commit -m "updated file"
+ $git push
  ```
- then add this line in bashrc file
+* ### Bootstrap your AWS environments
+Before deploying CDK Pipelines, you must bootstrap the AWS environment. An environment is an account/region pair where you want to deploy a CDK stack. Add the Account ID, Region, qualifier name (of your choice), and toolkit name (of your choice) in the command and run this command in the terminal to bootstrap the AWS environment.
 ```
-$alis python='/usr/bin/python3' (press ESC on keybaord)
-$:w! (press Enter on keybaord)
-$:q! (press Enter on keybaord) 
+$ cdk bootstrap aws://<Acount ID>/<Region> --qualifier <name> --toolkit-stack-name <name>
 ```
-check version of aws and then update it to new version using these commands.
-````
-$ aws --version 
-$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-$ unzip awscliv2.zip
-$ sudo ./aws/install
-````
-### Create CDK project 
-create directory of your choice and change directory to new created and then create cdk project using these commands. 
+Make sure to add your qualifier name in the cdk.json file, add the qualifier name in the following form.
 ```
-$ mkdir IrfanskipQ_Project1
-$ cd IrfanskipQ_Project1
-$ cdk init app --language python
+"@aws-cdk/core:bootstrapQualifier": "<qualifier name>"
 ```
-
-### install requirements 
-copy the files and update file in CDK project file. 
-``````
-$ python -m pip install aws-cdk.core==1.135.0
-$ pip install -r requirements.txt
-$ nvm install v16.3.0 && nvm use 16.3.0 && nvm alias default v16.3.0
-$ npm install -g aws-cdk
-$ export PATH=$PATH:$(npm get prefix)/bin
-$ pip install aws-cdk.aws-s3 aws-cdk.aws-lambda
-$ pip install aws-cdk.aws_cloudwatch_actions==1.135.0
-$ pip isntall boto3
-``````
+* ### Deploy Pipeline 
+Once the environment is bootstrap successfully, deploy the pipeline stack using this command. use your pipeline stack name instead of pipeline stack  
+```
+$ cdk deploy pipelinestack
+```
 now all required requirements are done on machine. 
-### Test Code
-To test code run these commands
-``
-$ cdk synth
-$ cdk deploy
-``
-if there is no error you can see the graphs of latency and availability on cludwatch and also you will get notification email when there is alarm trigger.  
+* ### CodePipeline
+To check that your CDK pipeline is created successfully, open CodePipeline in AWS services  
+* ### Results
+Wwhen CI/CD pipeline is implemented successfully then open cloud watch to observe the web health of URLs and then check Email and dynamo DB Tables to see details of the alarm notifications.
+### Author
+Muhammad Irfan Hassan Trainee @skipQ  muhammad.irfan.hassan.s@skipq.org
 
+Thanks! Enjoy:)
