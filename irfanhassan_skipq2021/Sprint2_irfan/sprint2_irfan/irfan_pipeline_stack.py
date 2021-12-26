@@ -1,3 +1,4 @@
+##------------Pipeline stack Code------------------------##
 from aws_cdk import (
     core,
     pipelines,
@@ -7,12 +8,16 @@ from sprint2_irfan.irfan_stage import IrfanStage
 class IrfanPipelineStack(core.Stack):
     def __init__(self, scope: core.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
-        
-        ###### source ########################
+
+#########  adding source to piepline (GitHub respository) #################################       
+##----------------------------------------------
         source = pipelines.CodePipelineSource.git_hub(repo_string = "muhammadskipq2021/ProximaCentauri",branch = "main",
                            authentication = core.SecretValue.secrets_manager("Irfan_sprint2_secretkey"),
                            trigger = cpactions.GitHubTrigger.POLL)
                            
+
+########################################################################################################
+#--------------------
         synth = pipelines.ShellStep('synth', input= source,
                 commands = ["cd irfanhassan_skipq2021/Sprint2_irfan","pip install aws-cdk.aws_cloudwatch_actions==1.135.0", 
                             "pip install -r requirements.txt ","npm install -g aws-cdk","cdk synth" ],

@@ -51,7 +51,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a.zip"
+          "S3Key": "41bd5c520bc7906c214f09f3c8c6fb23dd1de78b4e2f7e440a004b0a4efe63eb.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -67,7 +67,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/FirstHellammbda/Resource",
-        "aws:asset:path": "../asset.46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a",
+        "aws:asset:path": "../asset.41bd5c520bc7906c214f09f3c8c6fb23dd1de78b4e2f7e440a004b0a4efe63eb",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
@@ -250,7 +250,7 @@
       "Properties": {
         "Code": {
           "S3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
-          "S3Key": "46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a.zip"
+          "S3Key": "41bd5c520bc7906c214f09f3c8c6fb23dd1de78b4e2f7e440a004b0a4efe63eb.zip"
         },
         "Role": {
           "Fn::GetAtt": [
@@ -267,7 +267,7 @@
       ],
       "Metadata": {
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/Resource",
-        "aws:asset:path": "../asset.46e158674ed4571ae81327d35616dcfd0edca065c439ee3374fa29326c9bbf5a",
+        "aws:asset:path": "../asset.41bd5c520bc7906c214f09f3c8c6fb23dd1de78b4e2f7e440a004b0a4efe63eb",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
@@ -556,7 +556,7 @@
         "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.binance.com/Resource"
       }
     },
-    "AvailabiltyAlarmwwwapplecom350C0D5D": {
+    "AvailabiltyAlarmwwwfacebookcom982343A2": {
       "Type": "AWS::CloudWatch::Alarm",
       "Properties": {
         "ComparisonOperator": "LessThanThreshold",
@@ -570,13 +570,13 @@
         "Metrics": [
           {
             "Id": "m1",
-            "Label": "availabilty_metric www.apple.com",
+            "Label": "availabilty_metric www.facebook.com",
             "MetricStat": {
               "Metric": {
                 "Dimensions": [
                   {
                     "Name": "URL",
-                    "Value": "www.apple.com"
+                    "Value": "www.facebook.com"
                   }
                 ],
                 "MetricName": "URL_Aailibilty",
@@ -591,10 +591,10 @@
         "Threshold": 1
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.apple.com/Resource"
+        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.facebook.com/Resource"
       }
     },
-    "latencyAlarmwwwapplecom38B815D7": {
+    "latencyAlarmwwwfacebookcomF5AACB53": {
       "Type": "AWS::CloudWatch::Alarm",
       "Properties": {
         "ComparisonOperator": "GreaterThanThreshold",
@@ -608,13 +608,13 @@
         "Metrics": [
           {
             "Id": "m1",
-            "Label": "latency_metric www.apple.com",
+            "Label": "latency_metric www.facebook.com",
             "MetricStat": {
               "Metric": {
                 "Dimensions": [
                   {
                     "Name": "URL",
-                    "Value": "www.apple.com"
+                    "Value": "www.facebook.com"
                   }
                 ],
                 "MetricName": "URL_Latency",
@@ -629,7 +629,7 @@
         "Threshold": 0.2
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.apple.com/Resource"
+        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.facebook.com/Resource"
       }
     },
     "CDKMetadata": {
