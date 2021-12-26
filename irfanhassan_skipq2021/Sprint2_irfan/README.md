@@ -18,38 +18,23 @@ Project is created with
 * SNS
 * Cloud9
 * S3
+* CodePipeline
+* Secret Manager
+* CloudFormation
 
 ## SetUp
 To run this project, follow these steps 
 ### Environment creation on AWS
-First of all login in aws.amazon and create a virtual machine. 
-### Update Python and AWS 
-check version of python and if it is old version check new version is available then make new version as default version using these commands.
- ```
- $ python --version
- $ python3 --version
- $ source ~/.bashrc
- ```
- then add this line in bashrc file
-```
-$alis python='/usr/bin/python3' (press ESC on keybaord)
-$:w! (press Enter on keybaord)
-$:q! (press Enter on keybaord) 
-```
-check version of aws and then update it to new version using these commands.
-````
-$ aws --version 
-$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-$ unzip awscliv2.zip
-$ sudo ./aws/install
-````
-### Create CDK project 
-create directory of your choice and change directory to new created and then create cdk project using these commands. 
-```
-$ mkdir IrfanskipQ_Project1
-$ cd IrfanskipQ_Project1
-$ cdk init app --language python
-```
+First of all login in aws.amazon and create a virtual machine and install all requirements.
+### Store Personal access tokens 
+To get access to github repository , you have to generate Personal access tokens and then store Personal access tokens in AWS Secret Manager.
+### Setup Source
+At the beginning of the project it's essentil to setup the source. Store the code in your github respository. Add the github repository path in Source of pipeline stack.
+### Bootstrap your AWS environments
+Before you can use CDK Pipelines, you must bootstrap the AWS environment(s) to which you will deploy your stacks. An environment is an account/region pair to which you want to deploy a CDK stack. Add the Acount ID, Region , qualifier name (of your choice) and toolkit name (of your choice) in the command and run this command in terminal to boostrap the AWS enviroment.
+`
+$ cdk bootstrap aws://<Acount ID>/<Region> --qualifier <name> --toolkit-stack-name <name>
+`
 
 ### install requirements 
 copy the files and update file in CDK project file. 
