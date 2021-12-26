@@ -1,58 +1,74 @@
+# ProximaCentauri Sprint2
+# Continuous integration and delivery (CI/CD) using CDK Pipelines
 
-# Welcome to your CDK Python project!
+## Table of contents
+* [Project Description](#Project-Description)
+* [Technologies](#technologies)
+* [Setup](#setup)
 
-This is a blank project for Python development with CDK.
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+## Project Description
+This aim of this project is to create multi-stage pipeline having Beta and Prod stage using CDK. pipeline will get webHealth monitor application'source code from github repository and will automate the process of building, testing and deploying application. If we add new stacks/stage or update anything in application, the pipeline automatically reconfigures itself to deploy those new stages and stacks. 
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the `.venv`
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
+## Technologies 
+Project is created with 
+* Lambda
+* CloudWatch
+* DynamoDB
+* SNS
+* Cloud9
+* S3
 
-To manually create a virtualenv on MacOS and Linux:
-
+## SetUp
+To run this project, follow these steps 
+### Environment creation on AWS
+First of all login in aws.amazon and create a virtual machine. 
+### Update Python and AWS 
+check version of python and if it is old version check new version is available then make new version as default version using these commands.
+ ```
+ $ python --version
+ $ python3 --version
+ $ source ~/.bashrc
+ ```
+ then add this line in bashrc file
 ```
-$ python3 -m venv .venv
+$alis python='/usr/bin/python3' (press ESC on keybaord)
+$:w! (press Enter on keybaord)
+$:q! (press Enter on keybaord) 
+```
+check version of aws and then update it to new version using these commands.
+````
+$ aws --version 
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+$ unzip awscliv2.zip
+$ sudo ./aws/install
+````
+### Create CDK project 
+create directory of your choice and change directory to new created and then create cdk project using these commands. 
+```
+$ mkdir IrfanskipQ_Project1
+$ cd IrfanskipQ_Project1
+$ cdk init app --language python
 ```
 
-After the init process completes and the virtualenv is created, you can use the following
-step to activate your virtualenv.
-
-```
-$ source .venv/bin/activate
-```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
-```
-% .venv\Scripts\activate.bat
-```
-
-Once the virtualenv is activated, you can install the required dependencies.
-
-```
+### install requirements 
+copy the files and update file in CDK project file. 
+``````
+$ python -m pip install aws-cdk.core==1.135.0
 $ pip install -r requirements.txt
-```
-
-At this point you can now synthesize the CloudFormation template for this code.
-
-```
+$ nvm install v16.3.0 && nvm use 16.3.0 && nvm alias default v16.3.0
+$ npm install -g aws-cdk
+$ export PATH=$PATH:$(npm get prefix)/bin
+$ pip install aws-cdk.aws-s3 aws-cdk.aws-lambda
+$ pip install aws-cdk.aws_cloudwatch_actions==1.135.0
+$ pip isntall boto3
+``````
+now all required requirements are done on machine. 
+### Test Code
+To test code run these commands
+``
 $ cdk synth
-```
+$ cdk deploy
+``
+if there is no error you can see the graphs of latency and availability on cludwatch and also you will get notification email when there is alarm trigger.  
 
-To add additional dependencies, for example other CDK libraries, just add
-them to your `setup.py` file and rerun the `pip install -r requirements.txt`
-command.
-
-## Useful commands
-
- * `cdk ls`          list all stacks in the app
- * `cdk synth`       emits the synthesized CloudFormation template
- * `cdk deploy`      deploy this stack to your default AWS account/region
- * `cdk diff`        compare deployed stack with current state
- * `cdk docs`        open CDK documentation
-
-Enjoy!
