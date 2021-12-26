@@ -9,7 +9,7 @@ from aws_cdk import (
     aws_sns_subscriptions as subsribe,
     aws_cloudwatch_actions as cw_actions,
     aws_dynamodb as db,
-    codedeploy
+    aws_codedeploy as codedeploy
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
