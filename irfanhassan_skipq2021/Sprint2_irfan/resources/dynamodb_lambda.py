@@ -10,19 +10,20 @@ def lambda_handler(event, context):
     msg = json.loads(message['Message'])
     timestamp=message['Timestamp']
     
-    
-  #  if msg['AlarmName'][0] == 'P':
-  #      client.put_item(TableName = "ProdStage-irfanskipqstack-irfanhassantable9BB9EE06-K7N6HU3VLIWO",
-  #      Item={
-  #            'Timestamp':{'S' : message['Timestamp']},
-  #             'Reason':{'S':msg['NewStateReason']
-  #             }})
-  #  elif msg['AlarmName'][0] == 'B':
-  #      client.put_item(TableName = "BetaStag-irfanskipqstack-irfanhassantable9BB9EE06-Q9YQR7BPL0DL",
-  #      Item={
-  #           'Timestamp':{'S' : message['Timestamp']},
-  #            'Reason':{'S':msg['NewStateReason']
-  #            }})
+    beta_table="BetaStag-irfanskipqstack-irfanhassantable1168CD430-1NNQHL0P7K3BG"
+    prod_tabel="ProdStage-irfanskipqstack-irfanhassantable1168CD430-7BYYC0V4LAAG"
+    if msg['AlarmName'][0] == 'P':
+        client.put_item(TableName =prod_tabel,
+        Item={
+              'Timestamp':{'S' : message['Timestamp']},
+               'Reason':{'S':msg['NewStateReason']
+               }})
+    elif msg['AlarmName'][0] == 'B':
+        client.put_item(TableName = beta_table,
+        Item={
+             'Timestamp':{'S' : message['Timestamp']},
+              'Reason':{'S':msg['NewStateReason']
+              }})
 
 
     
