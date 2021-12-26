@@ -13,6 +13,6 @@ aws-cdk.aws_events==1.135.0
 aws-cdk.aws_s3_notifications==1.135.0
 aws-cdk.pipelines==1.135.0
 aws-cdk.aws_codepipeline_actions==1.135.0
-aws-cdk.codedeploy==1.135.0
+aws-cdk.aws_codedeploy==1.135.0
 pytest
 boto3
