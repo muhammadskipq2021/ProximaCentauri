@@ -95,20 +95,17 @@ class Sprint2IrfanStack(cdk.Stack):
             
 #############    Automate ROLBACNK  ############################################################
 
-   #     durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
-   #     dimensions_map={'FunctionName': hello_lamda.function_name} ) 
-    #    
-     #   alarmFailed=cloudwatch_.Alarm(self, 'AlarmFailed', metric=durationMetric, 
-      #  threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
-       # evaluation_periods=1)
+        durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
+        dimensions_map={'FunctionName': hello_lamda.function_name} ) 
+        #if it failed then alarm generate.. 
+        alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
+        threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        evaluation_periods=1)
         ###Defining alias for my dblambda 
-        #try:
-        #    WebHealth_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="WebHealthAlias",
-        #    version=hello_lamda.current_version) 
-        #except:
-        #    pass
-    #    #### Defining code deployment group
-        #codedeploy.LambdaDeploymentGroup(self, "id",alias=WebHealth_alias, alarms=[alarmFailed])
+        Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
+        version=hello_lamda.current_version) 
+        #### Defining code deployment group
+        codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
 
 #creating lambda role function to give all access to lambda
