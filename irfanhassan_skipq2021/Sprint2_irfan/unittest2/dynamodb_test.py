@@ -8,5 +8,5 @@ def test_dynamodb():
     temp = app.synth().get_stack_by_name('Stack').template
     dynamodb_table = [resource for resource in temp['Resources'].values()  if resource['Type']=="AWS::DynamoDB::Table"]
     print(len(dynamodb_table))
-    assert len(dynamodb_table)==2  #
+    assert len(dynamodb_table)==1  #
     

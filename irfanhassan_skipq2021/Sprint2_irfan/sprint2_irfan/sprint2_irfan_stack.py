@@ -20,8 +20,8 @@ class Sprint2IrfanStack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
+########## #creating lambda roll and lambda for webhealth  ####################################################################
 
-        #creating lambda 
         lambda_role = self.create_lambda_role()
     #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
         hello_lamda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
@@ -29,29 +29,41 @@ class Sprint2IrfanStack(cdk.Stack):
         lambda_target = targets_.LambdaFunction(handler = hello_lamda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
-        #creating dynamodb table 
+############ #creating dynamodb table  #############################################################
+
         dynamo_table=self.create_table(id='irfanhassantable1', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
         db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
+
+############## adding dynamo db table name in table_name variale ##################################
+        db_lamda.add_environment('table_name', dynamo_table.table_name)
         
-        #adding SNS 
+############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
+        
         sns_topic = sns.Topic(self, 'WebHealth')
         sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
         sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
         
-        
+##############  reading URL from json file in s3 bucket ##############################################        
+
         list_url=bucket().bucket_as_list();
-        #creating metrics for latency and availability
-        for index in range (0,4):                    
-        #creating alarm for avialability and latency  
+
+#############  adding metrics and alarm for each webpage ##############################################
+
+        for index in range (0,4):                   
             Dimensions={'URL': list_url[index]}
+            
+        ############# adding availability matrics into cloud watch #################################
+        
             availabilty_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
                     metric_name=constant_.URL_Aailibilty, 
                     dimensions_map=Dimensions,
                     period=cdk.Duration.minutes(1),
                     label=('availabilty_metric'+' '+list_url[index])
                     )
+                    
+        ############# adding availability AlARM on availabilty metric into cloud watch #################################
             availabilty_Alarm=cloudwatch_.Alarm(self, 
                     id ="AvailabiltyAlarm"+" "+list_url[index],
                     metric = availabilty_metric,
@@ -60,7 +72,7 @@ class Sprint2IrfanStack(cdk.Stack):
                     evaluation_periods=1,
                     threshold =1
                     )
-
+        ############# adding latency matrics into cloud watch #################################
             latency_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
                     metric_name=constant_.URL_Latency, 
                     dimensions_map=Dimensions,
@@ -68,8 +80,7 @@ class Sprint2IrfanStack(cdk.Stack):
                     label='latency_metric'+" "+list_url[index]
                     )
                     
-          
-
+        ############# adding  AlARM on latency metric into cloud watch #################################            
             latency_Alarm=cloudwatch_.Alarm(self, id="latencyAlarm"+" "+list_url[index],
                     metric = latency_metric,
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
@@ -78,26 +89,26 @@ class Sprint2IrfanStack(cdk.Stack):
                     threshold = constant_.threshold[index]
                     )
         
-        
-        #sending sns topic to subscriber when alarm preached
+        ######### #sending sns topic to subscriber when alarm preached ##############################
             availabilty_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
             latency_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
-#############automate ROLBACNK  ############################################################
+            
+#############    Automate ROLBACNK  ############################################################
 
-        durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
-        dimensions_map={'FunctionName': hello_lamda.function_name} ) 
-        
-        alarmFailed=cloudwatch_.Alarm(self, 'AlarmFailed', metric=durationMetric, 
-        threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
-        evaluation_periods=1)
-        ##Defining alias for my dblambda 
-        try:
-            WebHealth_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="WebHealthAlias",
-            version=hello_lamda.current_version) 
-        except:
-            pass
+   #     durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
+   #     dimensions_map={'FunctionName': hello_lamda.function_name} ) 
+    #    
+     #   alarmFailed=cloudwatch_.Alarm(self, 'AlarmFailed', metric=durationMetric, 
+      #  threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+       # evaluation_periods=1)
+        ###Defining alias for my dblambda 
+        #try:
+        #    WebHealth_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="WebHealthAlias",
+        #    version=hello_lamda.current_version) 
+        #except:
+        #    pass
     #    #### Defining code deployment group
-        codedeploy.LambdaDeploymentGroup(self, "id",alias=WebHealth_alias, alarms=[alarmFailed])
+        #codedeploy.LambdaDeploymentGroup(self, "id",alias=WebHealth_alias, alarms=[alarmFailed])
 
 
 #creating lambda role function to give all access to lambda
