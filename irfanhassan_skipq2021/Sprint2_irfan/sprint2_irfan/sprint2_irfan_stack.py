@@ -35,8 +35,6 @@ class Sprint2IrfanStack(cdk.Stack):
         db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
         
-        
-        
         #adding SNS 
         sns_topic = sns.Topic(self, 'WebHealth')
         sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
