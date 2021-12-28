@@ -9,17 +9,19 @@ def lambda_handler(event, context):
     
 ######### getiing timssetamp && message details fromm even(alarm)  #########################
     message = event['Records'][0]['Sns']
-    msg = json.loads(message['Message'])    
+    msg = json.loads(message['Message'])   
     timestamp=message['Timestamp']
 ####### getting name of table ##############################################################
-    TableName = os.getenv('table_name')
-    print(TableName)
+    
+    tablename = os.getenv('table_name')#getting table name
+    
+########### puuting Item in dynamo DB ####################################################3
+    client.put_item(tablename,
     Item={
               'Timestamp':{'S' : message['Timestamp']},
                'Reason':{'S':msg['NewStateReason']}
         }
-########### puuting Item in dynamo DB ####################################################3
-    client.put_item(TableName,Item)
+    )
         
 
 
