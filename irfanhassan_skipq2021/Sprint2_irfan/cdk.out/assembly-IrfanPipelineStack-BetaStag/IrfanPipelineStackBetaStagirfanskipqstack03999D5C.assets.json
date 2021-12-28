@@ -1,0 +1,34 @@
+{
+  "version": "15.0.0",
+  "files": {
+    "aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29": {
+      "source": {
+        "path": "../asset.aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29",
+        "packaging": "zip"
+      },
+      "destinations": {
+        "315997497220-us-east-2": {
+          "bucketName": "cdk-mirfan-assets-315997497220-us-east-2",
+          "objectKey": "aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29.zip",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
+        }
+      }
+    },
+    "95c0f429f2383ec6716d54eed3cff8fe573616b095febfa5ccb35f0807da6eef": {
+      "source": {
+        "path": "IrfanPipelineStackBetaStagirfanskipqstack03999D5C.template.json",
+        "packaging": "file"
+      },
+      "destinations": {
+        "315997497220-us-east-2": {
+          "bucketName": "cdk-mirfan-assets-315997497220-us-east-2",
+          "objectKey": "95c0f429f2383ec6716d54eed3cff8fe573616b095febfa5ccb35f0807da6eef.json",
+          "region": "us-east-2",
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
+        }
+      }
+    }
+  },
+  "dockerImages": {}
+}
