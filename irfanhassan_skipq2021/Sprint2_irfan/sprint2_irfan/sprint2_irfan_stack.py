@@ -143,7 +143,3 @@ class Sprint2IrfanStack(cdk.Stack):
     def create_table(self,id,key):
         return db.Table(self,id,
         partition_key=key)
-    
-    
-    
-    
