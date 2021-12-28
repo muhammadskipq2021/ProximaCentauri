@@ -99,12 +99,12 @@ class Sprint2IrfanStack(cdk.Stack):
         dimensions_map={'FunctionName': hello_lamda.function_name} ) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
-        threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        threshold=500, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
-        ###Defining alias for my dblambda 
+        ###Defining alias of  my web health lambda 
         Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
         version=hello_lamda.current_version) 
-        #### Defining code deployment group
+        #### Defining code deployment when alarm generate .
         codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
 
@@ -128,7 +128,7 @@ class Sprint2IrfanStack(cdk.Stack):
         runtime= lambda_.Runtime.PYTHON_3_6,
         role=role
         )
-        
+    #### adding policy for dynamo db lambda to give it fullaccess
     def create_db_lambda_role(self):
         lambdaRole = aws_iam.Role(self, "lambda-role-db",
                         assumed_by = aws_iam.ServicePrincipal('lambda.amazonaws.com'),
