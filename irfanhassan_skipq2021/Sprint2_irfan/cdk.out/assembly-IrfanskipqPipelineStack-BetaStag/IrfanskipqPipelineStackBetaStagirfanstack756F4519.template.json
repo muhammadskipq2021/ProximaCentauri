@@ -43,7 +43,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/lambda-role/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/lambda-role/Resource"
       }
     },
     "FirstHellammbdaDB9FC3BC": {
@@ -66,7 +66,7 @@
         "lambdaroleDFE21467"
       ],
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/FirstHellammbda/Resource",
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/FirstHellammbda/Resource",
         "aws:asset:path": "../asset.aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
@@ -80,7 +80,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/FirstHellammbda/CurrentVersion/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/FirstHellammbda/CurrentVersion/Resource"
       }
     },
     "MonitorwebHealth28B40C7A": {
@@ -101,10 +101,10 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/MonitorwebHealth/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/MonitorwebHealth/Resource"
       }
     },
-    "MonitorwebHealthAllowEventRuleIrfanPipelineStackBetaStagirfanskipqstackFirstHellammbda3574C0C2D251B4EC": {
+    "MonitorwebHealthAllowEventRuleIrfanskipqPipelineStackBetaStagirfanstackFirstHellammbdaE908C828F6CE9778": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "Action": "lambda:InvokeFunction",
@@ -123,7 +123,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/MonitorwebHealth/AllowEventRuleIrfanPipelineStackBetaStagirfanskipqstackFirstHellammbda3574C0C2"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/MonitorwebHealth/AllowEventRuleIrfanskipqPipelineStackBetaStagirfanstackFirstHellammbdaE908C828"
       }
     },
     "irfanhassantable9BB9EE06": {
@@ -149,7 +149,7 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/irfanhassantable/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/irfanhassantable/Resource"
       }
     },
     "lambdaroledb8F96FA37": {
@@ -219,7 +219,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/lambda-role-db/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/lambda-role-db/Resource"
       }
     },
     "lambdaroledbDefaultPolicyAF35499B": {
@@ -253,7 +253,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/lambda-role-db/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/lambda-role-db/DefaultPolicy/Resource"
       }
     },
     "secondHellammbda69B4B3E3": {
@@ -284,13 +284,13 @@
         "lambdaroledb8F96FA37"
       ],
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/Resource",
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/secondHellammbda/Resource",
         "aws:asset:path": "../asset.aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29",
         "aws:asset:is-bundled": false,
         "aws:asset:property": "Code"
       }
     },
-    "secondHellammbdaAllowInvokeIrfanPipelineStackBetaStagirfanskipqstackWebHealth6C6BFE4E682D1813": {
+    "secondHellammbdaAllowInvokeIrfanskipqPipelineStackBetaStagirfanstackWebHealth66B19F67FECB8FF7": {
       "Type": "AWS::Lambda::Permission",
       "Properties": {
         "Action": "lambda:InvokeFunction",
@@ -306,7 +306,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/AllowInvoke:IrfanPipelineStackBetaStagirfanskipqstackWebHealth6C6BFE4E"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/secondHellammbda/AllowInvoke:IrfanskipqPipelineStackBetaStagirfanstackWebHealth66B19F67"
       }
     },
     "secondHellammbdaWebHealth1AFE3F74": {
@@ -324,13 +324,13 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/secondHellammbda/WebHealth/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/secondHellammbda/WebHealth/Resource"
       }
     },
     "WebHealthF43679AB": {
       "Type": "AWS::SNS::Topic",
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/WebHealth/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/WebHealth/Resource"
       }
     },
     "WebHealthmuhammadirfanhassansskipqorgE7DB7B4C": {
@@ -343,7 +343,7 @@
         "Endpoint": "muhammad.irfan.hassan.s@skipq.org"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource"
       }
     },
     "AvailabiltyAlarmwwwskipqorg7696051F": {
@@ -381,7 +381,7 @@
         "Threshold": 1
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.skipq.org/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/AvailabiltyAlarm www.skipq.org/Resource"
       }
     },
     "latencyAlarmwwwskipqorg116105C0": {
@@ -419,7 +419,7 @@
         "Threshold": 0.31
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.skipq.org/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/latencyAlarm www.skipq.org/Resource"
       }
     },
     "AvailabiltyAlarmwwwalibabacom3F67D7EB": {
@@ -457,7 +457,7 @@
         "Threshold": 1
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.alibaba.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/AvailabiltyAlarm www.alibaba.com/Resource"
       }
     },
     "latencyAlarmwwwalibabacom395B6622": {
@@ -495,7 +495,7 @@
         "Threshold": 0.25
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.alibaba.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/latencyAlarm www.alibaba.com/Resource"
       }
     },
     "AvailabiltyAlarmwwwbinancecom9391ED13": {
@@ -533,7 +533,7 @@
         "Threshold": 1
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.binance.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/AvailabiltyAlarm www.binance.com/Resource"
       }
     },
     "latencyAlarmwwwbinancecom4587AABF": {
@@ -571,7 +571,7 @@
         "Threshold": 0.25
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.binance.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/latencyAlarm www.binance.com/Resource"
       }
     },
     "AvailabiltyAlarmwwwfacebookcom982343A2": {
@@ -609,7 +609,7 @@
         "Threshold": 1
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AvailabiltyAlarm www.facebook.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/AvailabiltyAlarm www.facebook.com/Resource"
       }
     },
     "latencyAlarmwwwfacebookcomF5AACB53": {
@@ -647,7 +647,7 @@
         "Threshold": 0.2
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/latencyAlarm www.facebook.com/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/latencyAlarm www.facebook.com/Resource"
       }
     },
     "AlarmindicationFailed86330CFA": {
@@ -670,7 +670,7 @@
         "Threshold": 500
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/Alarm_indication_Failed/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/Alarm_indication_Failed/Resource"
       }
     },
     "AlaisForLambda3638794F": {
@@ -698,7 +698,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/AlaisForLambda/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/AlaisForLambda/Resource"
       }
     },
     "idApplicationEE49D5B5": {
@@ -707,7 +707,7 @@
         "ComputePlatform": "Lambda"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/id/Application/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/id/Application/Resource"
       }
     },
     "idServiceRoleBB9E4988": {
@@ -741,7 +741,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/id/ServiceRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/id/ServiceRole/Resource"
       }
     },
     "id4D1900E5": {
@@ -780,7 +780,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/id/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/id/Resource"
       }
     },
     "CDKMetadata": {
@@ -789,7 +789,7 @@
         "Analytics": "v2:deflate64:H4sIAAAAAAAA/12QQU8DIRCFf0vvlNo0mnhz20YvHjbbxjsL2GKB2TBgsyH8d4HtGu1pvjePGR6s6XrzSB8WL+yKSy4uq8jBSRoPnvELaRClz3hS9kR2YNG7wD3pJEJwXJLdp505kbIhKmZo7EBPXqktaMXHIidKRDPTC0bja7DcK7DF++UP6fDW+4OtdEZhVY1WDEuvQiK4WbISE2lNmzXdBn6RfstQEvktbbZiF26Rck1EjJYZED2NR9ZPRoW8zebDh9Ajd2qYw/3TRxgUrxMFEuEagrgyz880Npo5M2XLkD0QUshBw0jje331viqTQ705CAOZus0w5K9h83138m4mpUTa0Z/Brjb0iT4vvlCppQvWKyNpN9Uf60cRNdgBAAA="
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/BetaStag/irfanskipqstack/CDKMetadata/Default"
+        "aws:cdk:path": "IrfanskipqPipelineStack/BetaStag/irfanstack/CDKMetadata/Default"
       }
     }
   },

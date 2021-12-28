@@ -51,8 +51,8 @@ class Sprint2IrfanStack(cdk.Stack):
 
 #############  adding metrics and alarm for each webpage ##############################################
 
-        for index in range (0,4):                   
-            Dimensions={'URL': list_url[index]}
+        for url in list_url:                   
+            Dimensions={'URL': url }
             
         ############# adding availability matrics into cloud watch #################################
         
@@ -60,12 +60,12 @@ class Sprint2IrfanStack(cdk.Stack):
                     metric_name=constant_.URL_Aailibilty, 
                     dimensions_map=Dimensions,
                     period=cdk.Duration.minutes(1),
-                    label=('availabilty_metric'+' '+list_url[index])
+                    label=('availabilty_metric'+' '+url )
                     )
                     
         ############# adding availability AlARM on availabilty metric into cloud watch #################################
             availabilty_Alarm=cloudwatch_.Alarm(self, 
-                    id ="AvailabiltyAlarm"+" "+list_url[index],
+                    id ="AvailabiltyAlarm"+" "+url ,
                     metric = availabilty_metric,
                     comparison_operator = cloudwatch_.ComparisonOperator.LESS_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
@@ -77,16 +77,16 @@ class Sprint2IrfanStack(cdk.Stack):
                     metric_name=constant_.URL_Latency, 
                     dimensions_map=Dimensions,
                     period=cdk.Duration.minutes(1),
-                    label='latency_metric'+" "+list_url[index]
+                    label='latency_metric'+" "+url 
                     )
                     
         ############# adding  AlARM on latency metric into cloud watch #################################            
-            latency_Alarm=cloudwatch_.Alarm(self, id="latencyAlarm"+" "+list_url[index],
+            latency_Alarm=cloudwatch_.Alarm(self, id="latencyAlarm"+" "+url ,
                     metric = latency_metric,
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
-                    threshold = constant_.threshold[index]
+                    threshold = 3.5
                     )
         
         ######### #sending sns topic to subscriber when alarm preached ##############################
@@ -99,7 +99,7 @@ class Sprint2IrfanStack(cdk.Stack):
         dimensions_map={'FunctionName': webhealth_lambda.function_name} ) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
-        threshold=500, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        threshold=150, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
         ###Defining alias of  my web health lambda 
         Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",

@@ -22,7 +22,7 @@
       "UpdateReplacePolicy": "Retain",
       "DeletionPolicy": "Retain",
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/ArtifactsBucket/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/ArtifactsBucket/Resource"
       }
     },
     "pipelinePipelineArtifactsBucketPolicy10A41055": {
@@ -82,7 +82,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/ArtifactsBucket/Policy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/ArtifactsBucket/Policy/Resource"
       }
     },
     "pipelinePipelineRole7016E5DF": {
@@ -102,7 +102,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Role/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Role/Resource"
       }
     },
     "pipelinePipelineRoleDefaultPolicy16010F3E": {
@@ -220,7 +220,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Role/DefaultPolicy/Resource"
       }
     },
     "pipelinePipeline4163A4B1": {
@@ -310,7 +310,7 @@
                   "ProjectName": {
                     "Ref": "pipelineUpdatePipelineSelfMutation14A96D2F"
                   },
-                  "EnvironmentVariables": "[{\"name\":\"_PROJECT_CONFIG_HASH\",\"type\":\"PLAINTEXT\",\"value\":\"8435cc70178185b7f9858301f8ae5a54371e62bcd3eba5bf1001275cafb9e7d9\"}]"
+                  "EnvironmentVariables": "[{\"name\":\"_PROJECT_CONFIG_HASH\",\"type\":\"PLAINTEXT\",\"value\":\"a54748a5b9efe19f6c0ade47ad185291713b18bdf127861880f24273e64aa71a\"}]"
                 },
                 "InputArtifacts": [
                   {
@@ -396,7 +396,7 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "BetaStag-irfanskipqstack",
+                  "StackName": "BetaStag-irfanstack",
                   "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
                   "RoleArn": {
                     "Fn::Join": [
@@ -412,14 +412,14 @@
                   },
                   "ActionMode": "CHANGE_SET_REPLACE",
                   "ChangeSetName": "PipelineChange",
-                  "TemplatePath": "synth_Output::assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.template.json"
+                  "TemplatePath": "synth_Output::assembly-IrfanskipqPipelineStack-BetaStag/IrfanskipqPipelineStackBetaStagirfanstack756F4519.template.json"
                 },
                 "InputArtifacts": [
                   {
                     "Name": "synth_Output"
                   }
                 ],
-                "Name": "irfanskipqstack.Prepare",
+                "Name": "irfanstack.Prepare",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -442,11 +442,11 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "BetaStag-irfanskipqstack",
+                  "StackName": "BetaStag-irfanstack",
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange"
                 },
-                "Name": "irfanskipqstack.Deploy",
+                "Name": "irfanstack.Deploy",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -490,7 +490,7 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "ProdStage-irfanskipqstack",
+                  "StackName": "ProdStage-irfanstack",
                   "Capabilities": "CAPABILITY_NAMED_IAM,CAPABILITY_AUTO_EXPAND",
                   "RoleArn": {
                     "Fn::Join": [
@@ -506,14 +506,14 @@
                   },
                   "ActionMode": "CHANGE_SET_REPLACE",
                   "ChangeSetName": "PipelineChange",
-                  "TemplatePath": "synth_Output::assembly-IrfanPipelineStack-ProdStage/IrfanPipelineStackProdStageirfanskipqstack692E720D.template.json"
+                  "TemplatePath": "synth_Output::assembly-IrfanskipqPipelineStack-ProdStage/IrfanskipqPipelineStackProdStageirfanstackC979C87D.template.json"
                 },
                 "InputArtifacts": [
                   {
                     "Name": "synth_Output"
                   }
                 ],
-                "Name": "irfanskipqstack.Prepare",
+                "Name": "irfanstack.Prepare",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -536,11 +536,11 @@
                   "Version": "1"
                 },
                 "Configuration": {
-                  "StackName": "ProdStage-irfanskipqstack",
+                  "StackName": "ProdStage-irfanstack",
                   "ActionMode": "CHANGE_SET_EXECUTE",
                   "ChangeSetName": "PipelineChange"
                 },
-                "Name": "irfanskipqstack.Deploy",
+                "Name": "irfanstack.Deploy",
                 "RoleArn": {
                   "Fn::Join": [
                     "",
@@ -572,7 +572,7 @@
         "pipelinePipelineRole7016E5DF"
       ],
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Resource"
       }
     },
     "pipelinePipelineBuildsynthCdkBuildProjectRole540A6912": {
@@ -592,7 +592,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Role/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Role/Resource"
       }
     },
     "pipelinePipelineBuildsynthCdkBuildProjectRoleDefaultPolicyD900621D": {
@@ -711,7 +711,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Role/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineBuildsynthCdkBuildProject2CCFF688": {
@@ -740,7 +740,7 @@
         "EncryptionKey": "alias/aws/s3"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Build/synth/CdkBuildProject/Resource"
       }
     },
     "pipelinePipelineBuildsynthCodePipelineActionRole3672AE03": {
@@ -771,7 +771,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Build/synth/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Build/synth/CodePipelineActionRole/Resource"
       }
     },
     "pipelinePipelineBuildsynthCodePipelineActionRoleDefaultPolicy11ECC96F": {
@@ -804,7 +804,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Build/synth/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Build/synth/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineUpdatePipelineSelfMutateCodePipelineActionRole616B0B5B": {
@@ -835,7 +835,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/Resource"
       }
     },
     "pipelinePipelineUpdatePipelineSelfMutateCodePipelineActionRoleDefaultPolicy09E3C254": {
@@ -868,7 +868,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/UpdatePipeline/SelfMutate/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineAssetsFileAsset1CodePipelineActionRole1AC3BB9C": {
@@ -899,7 +899,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Assets/FileAsset1/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Assets/FileAsset1/CodePipelineActionRole/Resource"
       }
     },
     "pipelinePipelineAssetsFileAsset1CodePipelineActionRoleDefaultPolicy44CBA549": {
@@ -932,7 +932,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/Assets/FileAsset1/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/Assets/FileAsset1/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineBetaStagunittestRole7B4908A0": {
@@ -952,7 +952,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Role/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Role/Resource"
       }
     },
     "pipelinePipelineBetaStagunittestRoleDefaultPolicy43448785": {
@@ -1068,7 +1068,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Role/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineBetaStagunittest59AADD87": {
@@ -1097,7 +1097,7 @@
         "EncryptionKey": "alias/aws/s3"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/BetaStag/unit_test/unit_test/Resource"
       }
     },
     "pipelinePipelineBetaStagunittestCodePipelineActionRole03FEFDB9": {
@@ -1128,7 +1128,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/BetaStag/unit_test/CodePipelineActionRole/Resource"
       }
     },
     "pipelinePipelineBetaStagunittestCodePipelineActionRoleDefaultPolicyF8F503CB": {
@@ -1161,7 +1161,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/BetaStag/unit_test/CodePipelineActionRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/BetaStag/unit_test/CodePipelineActionRole/DefaultPolicy/Resource"
       }
     },
     "pipelinePipelineProdStagePromoteToProdCodePipelineActionRoleA1F074B1": {
@@ -1192,7 +1192,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Pipeline/ProdStage/PromoteToProd/CodePipelineActionRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Pipeline/ProdStage/PromoteToProd/CodePipelineActionRole/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutationRole91820177": {
@@ -1212,7 +1212,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/UpdatePipeline/SelfMutation/Role/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/UpdatePipeline/SelfMutation/Role/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutationRoleDefaultPolicy095404B8": {
@@ -1352,7 +1352,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/UpdatePipeline/SelfMutation/Role/DefaultPolicy/Resource"
       }
     },
     "pipelineUpdatePipelineSelfMutation14A96D2F": {
@@ -1375,13 +1375,13 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g aws-cdk\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk -a . deploy IrfanPipelineStack --require-approval=never --verbose\"\n      ]\n    }\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g aws-cdk\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk -a . deploy IrfanskipqPipelineStack --require-approval=never --verbose\"\n      ]\n    }\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "EncryptionKey": "alias/aws/s3"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/UpdatePipeline/SelfMutation/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/UpdatePipeline/SelfMutation/Resource"
       }
     },
     "pipelineAssetsFileRole3D849373": {
@@ -1413,7 +1413,7 @@
         }
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Assets/FileRole/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Assets/FileRole/Resource"
       }
     },
     "pipelineAssetsFileRoleDefaultPolicy6EAB09DD": {
@@ -1522,7 +1522,7 @@
         ]
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Assets/FileRole/DefaultPolicy/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Assets/FileRole/DefaultPolicy/Resource"
       }
     },
     "pipelineAssetsFileAsset1B09D90CC": {
@@ -1545,13 +1545,13 @@
           ]
         },
         "Source": {
-          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanPipelineStack-BetaStag/IrfanPipelineStackBetaStagirfanskipqstack03999D5C.assets.json\\\" --verbose publish \\\"aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}",
+          "BuildSpec": "{\n  \"version\": \"0.2\",\n  \"phases\": {\n    \"install\": {\n      \"commands\": [\n        \"npm install -g cdk-assets\"\n      ]\n    },\n    \"build\": {\n      \"commands\": [\n        \"cdk-assets --path \\\"assembly-IrfanskipqPipelineStack-BetaStag/IrfanskipqPipelineStackBetaStagirfanstack756F4519.assets.json\\\" --verbose publish \\\"aa5210acf861b8ec1fbbb44c8f043df6267b6371a4dc2254a2cbf3c12db84f29:315997497220-us-east-2\\\"\"\n      ]\n    }\n  }\n}",
           "Type": "CODEPIPELINE"
         },
         "EncryptionKey": "alias/aws/s3"
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/pipeline/Assets/FileAsset1/Resource"
+        "aws:cdk:path": "IrfanskipqPipelineStack/pipeline/Assets/FileAsset1/Resource"
       }
     },
     "CDKMetadata": {
@@ -1560,7 +1560,7 @@
         "Analytics": "v2:deflate64:H4sIAAAAAAAA/0VOWw6CMBA8C/9lkRBN/DNyAYInwHaNhdKSPmJI07tLLZWvmdmdndka6uYMp+I2fExJ2VR5qjSCf9iBTqRV0ljtqCU9GuU0RdK+ZOaBLHxBwSUaaBXDblckZm05DPMe/H+33WceiGnA3x2d0Mb5zhJ0SnC6HuOkA+HDDL5XIn0S8XBmT6x+Oi7Y0dtpNSL91ew0hEC61b6VrBq4wLUYDeeldtLyGaFP+AVRmSlBHwEAAA=="
       },
       "Metadata": {
-        "aws:cdk:path": "IrfanPipelineStack/CDKMetadata/Default"
+        "aws:cdk:path": "IrfanskipqPipelineStack/CDKMetadata/Default"
       }
     }
   },
