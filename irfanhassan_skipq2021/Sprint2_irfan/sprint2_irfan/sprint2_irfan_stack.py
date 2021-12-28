@@ -88,7 +88,7 @@ class Sprint2IrfanStack(cdk.Stack):
                     evaluation_periods=1,
                     threshold = 2.0
                     )
-        
+        #
         ######### #sending sns topic to subscriber when alarm preached ##############################
             availabilty_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
             latency_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
