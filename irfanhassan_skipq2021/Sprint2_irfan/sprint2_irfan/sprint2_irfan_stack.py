@@ -102,7 +102,7 @@ class Sprint2IrfanStack(cdk.Stack):
         threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
         ###Defining alias of  my web health lambda 
-        Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
+        Web_health_alias=lambda_.Alias(self, "AlaisForWebHealthLambda", alias_name="Web_Health_Alias",
         version=webhealth_lambda.current_version) 
         #### Defining code deployment when alarm generate .
         codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
