@@ -99,7 +99,7 @@ class Sprint2IrfanStack(cdk.Stack):
         dimensions_map={'FunctionName': webhealth_lambda.function_name} ) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
-        threshold=150, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        threshold=3000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
         ###Defining alias of  my web health lambda 
         Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
