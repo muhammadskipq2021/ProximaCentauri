@@ -17,6 +17,7 @@ def lambda_handler(event, context):
     tablename = os.getenv('table_name')#getting table name
     print("--------------------")
     print(timestamp)
+    print(tablename)
     #print(reason)
 ########### puuting Item in dynamo DB ####################################################3
     #client.put_item(tablename,Item={'Timestamp':{'S' : timestamp}, 'Reason':{'S':reason} })

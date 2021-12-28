@@ -95,7 +95,7 @@ class Sprint2IrfanStack(cdk.Stack):
             
 #############    Automate ROLBACNK  ############################################################
 
-        durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
+        durationMetric= cloudwatch_.Metric(namespace='AWS/Lambda', metric_name='Duration',
         dimensions_map={'FunctionName': webhealth_lambda.function_name} ) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
