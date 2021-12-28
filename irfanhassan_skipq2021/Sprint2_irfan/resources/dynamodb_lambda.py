@@ -13,6 +13,7 @@ def lambda_handler(event, context):
     timestamp=message['Timestamp']
 ####### getting name of table ##############################################################
     TableName = os.getenv('table_name')
+    print(TableName)
     Item={
               'Timestamp':{'S' : message['Timestamp']},
                'Reason':{'S':msg['NewStateReason']}
