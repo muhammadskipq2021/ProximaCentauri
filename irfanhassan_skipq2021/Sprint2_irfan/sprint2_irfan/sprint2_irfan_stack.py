@@ -59,7 +59,7 @@ class Sprint2IrfanStack(cdk.Stack):
             availabilty_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
                     metric_name=constant_.URL_Aailibilty, 
                     dimensions_map=Dimensions,
-                    period=cdk.Duration.minutes(1),
+                    period=cdk.Duration.minutes(0.5),
                     label=('availabilty_metric'+' '+url )
                     )
                     
@@ -76,7 +76,7 @@ class Sprint2IrfanStack(cdk.Stack):
             latency_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
                     metric_name=constant_.URL_Latency, 
                     dimensions_map=Dimensions,
-                    period=cdk.Duration.minutes(1),
+                    period=cdk.Duration.minutes(0.5),
                     label='latency_metric'+" "+url 
                     )
                     
@@ -86,7 +86,7 @@ class Sprint2IrfanStack(cdk.Stack):
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
-                    threshold = 3.5
+                    threshold = 3.0
                     )
         
         ######### #sending sns topic to subscriber when alarm preached ##############################
@@ -99,7 +99,7 @@ class Sprint2IrfanStack(cdk.Stack):
         dimensions_map={'FunctionName': webhealth_lambda.function_name},period=cdk.Duration.minutes(1)) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
-        threshold=3000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
         ###Defining alias of  my web health lambda 
         Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
