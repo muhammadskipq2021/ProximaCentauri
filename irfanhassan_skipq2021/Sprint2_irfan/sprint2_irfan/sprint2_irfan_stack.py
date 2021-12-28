@@ -24,14 +24,14 @@ class Sprint2IrfanStack(cdk.Stack):
 
         lambda_role = self.create_lambda_role()
     #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
-        hello_lamda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
+        webhealth_lambda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
         lambda_schedule = event_.Schedule.rate(cdk.Duration.minutes(1))
-        lambda_target = targets_.LambdaFunction(handler = hello_lamda)
+        lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
 ############ #creating dynamodb table  #############################################################
 
-        dynamo_table=self.create_table(id='irfanhassantable1', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
+        dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
         db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
@@ -96,14 +96,14 @@ class Sprint2IrfanStack(cdk.Stack):
 #############    Automate ROLBACNK  ############################################################
 
         durationMetric= cloudwatch_.Metric(namespace='Irfanlambda', metric_name='Duration',
-        dimensions_map={'FunctionName': hello_lamda.function_name} ) 
+        dimensions_map={'FunctionName': webhealth_lambda.function_name} ) 
         #if it failed then alarm generate.. 
         alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
         threshold=500, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
         evaluation_periods=1)
         ###Defining alias of  my web health lambda 
         Web_health_alias=lambda_.Alias(self, "AlaisForLambda", alias_name="Web_Health_Alias",
-        version=hello_lamda.current_version) 
+        version=webhealth_lambda.current_version) 
         #### Defining code deployment when alarm generate .
         codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
