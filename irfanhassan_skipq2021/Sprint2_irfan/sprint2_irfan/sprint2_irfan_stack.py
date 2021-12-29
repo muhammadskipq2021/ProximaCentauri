@@ -86,7 +86,7 @@ class Sprint2IrfanStack(cdk.Stack):
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
-                    threshold = 2.0
+                    threshold = .28
                     )
         #
         ######### #sending sns topic to subscriber when alarm preached ##############################
