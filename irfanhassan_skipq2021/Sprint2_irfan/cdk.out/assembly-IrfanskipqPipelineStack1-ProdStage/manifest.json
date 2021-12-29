@@ -1,35 +1,35 @@
 {
   "version": "15.0.0",
   "artifacts": {
-    "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.assets": {
+    "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86.assets": {
       "type": "cdk:asset-manifest",
       "properties": {
-        "file": "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.assets.json",
+        "file": "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86.assets.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/mirfan/version"
       }
     },
-    "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3": {
+    "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86": {
       "type": "aws:cloudformation:stack",
       "environment": "aws://315997497220/us-east-2",
       "properties": {
-        "templateFile": "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.template.json",
+        "templateFile": "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86.template.json",
         "validateOnSynth": true,
         "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2",
         "cloudFormationExecutionRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-cfn-exec-role-315997497220-us-east-2",
-        "stackTemplateAssetObjectUrl": "s3://cdk-mirfan-assets-315997497220-us-east-2/7730ce997ded7ff058c41c5e4823a2ae4e5f19023a43bb994a8bb99d41730609.json",
+        "stackTemplateAssetObjectUrl": "s3://cdk-mirfan-assets-315997497220-us-east-2/4a15a34f37927a4d2d778b618cd98c2812a4aa8f4a769415d28e71d976eb4639.json",
         "requiresBootstrapStackVersion": 6,
         "bootstrapStackVersionSsmParameter": "/cdk-bootstrap/mirfan/version",
         "additionalDependencies": [
-          "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.assets"
+          "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86.assets"
         ],
-        "stackName": "BetaStag-irfanstack"
+        "stackName": "ProdStage-irfanstack"
       },
       "dependencies": [
-        "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.assets"
+        "IrfanskipqPipelineStack1ProdStageirfanstackE7F74F86.assets"
       ],
       "metadata": {
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/lambda-role/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/lambda-role/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "lambdaroleDFE21467",
@@ -46,7 +46,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/FirstHellammbda/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/FirstHellammbda/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "FirstHellammbdaDB9FC3BC",
@@ -63,7 +63,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/FirstHellammbda/CurrentVersion/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/FirstHellammbda/CurrentVersion/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "FirstHellammbdaCurrentVersionCC69F47922ff017601f14f63fbc9ae07595079fd",
@@ -82,7 +82,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/MonitorwebHealth/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/MonitorwebHealth/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "MonitorwebHealth28B40C7A",
@@ -99,10 +99,10 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/MonitorwebHealth/AllowEventRuleIrfanskipqPipelineStack1BetaStagirfanstackFirstHellammbda071A8E61": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/MonitorwebHealth/AllowEventRuleIrfanskipqPipelineStack1ProdStageirfanstackFirstHellammbdaFA4DD67D": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "MonitorwebHealthAllowEventRuleIrfanskipqPipelineStack1BetaStagirfanstackFirstHellammbda071A8E61EA3B874A",
+            "data": "MonitorwebHealthAllowEventRuleIrfanskipqPipelineStack1ProdStageirfanstackFirstHellammbdaFA4DD67DCDC90CD7",
             "trace": [
               "Function.addPermission (/tmp/jsii-kernel-iAxKXC/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:44:9)",
               "Object.addLambdaPermission (/tmp/jsii-kernel-iAxKXC/node_modules/@aws-cdk/aws-events-targets/lib/util.js:63:17)",
@@ -120,7 +120,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/irfanhassantable/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/irfanhassantable/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "irfanhassantable9BB9EE06",
@@ -137,7 +137,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/lambda-role-db/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/lambda-role-db/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "lambdaroledb8F96FA37",
@@ -154,7 +154,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/lambda-role-db/DefaultPolicy/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/lambda-role-db/DefaultPolicy/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "lambdaroledbDefaultPolicyAF35499B",
@@ -176,7 +176,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/secondHellammbda/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/secondHellammbda/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "secondHellammbda69B4B3E3",
@@ -193,10 +193,10 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/secondHellammbda/AllowInvoke:IrfanskipqPipelineStack1BetaStagirfanstackWebHealthE25FD177": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/secondHellammbda/AllowInvoke:IrfanskipqPipelineStack1ProdStageirfanstackWebHealth7C24DD37": [
           {
             "type": "aws:cdk:logicalId",
-            "data": "secondHellammbdaAllowInvokeIrfanskipqPipelineStack1BetaStagirfanstackWebHealthE25FD177BC2E2A54",
+            "data": "secondHellammbdaAllowInvokeIrfanskipqPipelineStack1ProdStageirfanstackWebHealth7C24DD37F35C71F4",
             "trace": [
               "Function.addPermission (/tmp/jsii-kernel-iAxKXC/node_modules/@aws-cdk/aws-lambda/lib/function-base.js:44:9)",
               "LambdaSubscription.bind (/tmp/jsii-kernel-iAxKXC/node_modules/@aws-cdk/aws-sns-subscriptions/lib/lambda.js:38:17)",
@@ -213,7 +213,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/secondHellammbda/WebHealth/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/secondHellammbda/WebHealth/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "secondHellammbdaWebHealth1AFE3F74",
@@ -232,7 +232,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/WebHealth/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/WebHealth/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebHealthF43679AB",
@@ -249,7 +249,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/WebHealth/muhammad.irfan.hassan.s@skipq.org/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "WebHealthmuhammadirfanhassansskipqorgE7DB7B4C",
@@ -268,7 +268,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/AvailabiltyAlarm www.skipq.org/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/AvailabiltyAlarm www.skipq.org/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AvailabiltyAlarmwwwskipqorg7696051F",
@@ -285,7 +285,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/latencyAlarm www.skipq.org/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/latencyAlarm www.skipq.org/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "latencyAlarmwwwskipqorg116105C0",
@@ -302,7 +302,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/AvailabiltyAlarm www.alibaba.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/AvailabiltyAlarm www.alibaba.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AvailabiltyAlarmwwwalibabacom3F67D7EB",
@@ -319,7 +319,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/latencyAlarm www.alibaba.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/latencyAlarm www.alibaba.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "latencyAlarmwwwalibabacom395B6622",
@@ -336,7 +336,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/AvailabiltyAlarm www.binance.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/AvailabiltyAlarm www.binance.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AvailabiltyAlarmwwwbinancecom9391ED13",
@@ -353,7 +353,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/latencyAlarm www.binance.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/latencyAlarm www.binance.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "latencyAlarmwwwbinancecom4587AABF",
@@ -370,7 +370,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/AvailabiltyAlarm www.youtube.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/AvailabiltyAlarm www.youtube.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AvailabiltyAlarmwwwyoutubecomD2374FBB",
@@ -387,7 +387,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/latencyAlarm www.youtube.com/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/latencyAlarm www.youtube.com/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "latencyAlarmwwwyoutubecom0FC45DC2",
@@ -404,7 +404,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/Alarm_indication_Failed/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/Alarm_indication_Failed/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AlarmindicationFailed86330CFA",
@@ -421,7 +421,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/AlaisForWebHealthLambda/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/AlaisForWebHealthLambda/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "AlaisForWebHealthLambdaAA7725CA",
@@ -438,7 +438,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/id/Application/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/id/Application/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "idApplicationEE49D5B5",
@@ -456,7 +456,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/id/ServiceRole/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/id/ServiceRole/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "idServiceRoleBB9E4988",
@@ -474,7 +474,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/id/Resource": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/id/Resource": [
           {
             "type": "aws:cdk:logicalId",
             "data": "id4D1900E5",
@@ -491,7 +491,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/CDKMetadata/Default": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/CDKMetadata/Default": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CDKMetadata",
@@ -519,7 +519,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/BootstrapVersion": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/BootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "BootstrapVersion",
@@ -548,7 +548,7 @@
             ]
           }
         ],
-        "/IrfanskipqPipelineStack1/BetaStag/irfanstack/CheckBootstrapVersion": [
+        "/IrfanskipqPipelineStack1/ProdStage/irfanstack/CheckBootstrapVersion": [
           {
             "type": "aws:cdk:logicalId",
             "data": "CheckBootstrapVersion",
@@ -578,7 +578,7 @@
           }
         ]
       },
-      "displayName": "IrfanskipqPipelineStack1/BetaStag/irfanstack"
+      "displayName": "IrfanskipqPipelineStack1/ProdStage/irfanstack"
     }
   }
 }
