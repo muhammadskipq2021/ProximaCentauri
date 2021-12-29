@@ -15,15 +15,15 @@
         }
       }
     },
-    "98ee69d89cda1291c11d269dd9f5ef1a8c0e6e11164a5e808be415d13450c257": {
+    "caf455c5c34786db2e713d3d0fab8111ceeb3b94b99001274903daa472cffba8": {
       "source": {
-        "path": "IrfanskipqPipelineStack1BetaStagirfanstack10701BE3.template.json",
+        "path": "IrfanskipqPipelineStackBetaStagirfanstack756F4519.template.json",
         "packaging": "file"
       },
       "destinations": {
         "315997497220-us-east-2": {
           "bucketName": "cdk-mirfan-assets-315997497220-us-east-2",
-          "objectKey": "98ee69d89cda1291c11d269dd9f5ef1a8c0e6e11164a5e808be415d13450c257.json",
+          "objectKey": "caf455c5c34786db2e713d3d0fab8111ceeb3b94b99001274903daa472cffba8.json",
           "region": "us-east-2",
           "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
         }
