@@ -18,7 +18,7 @@ def lambda_handler(event, context):
 
     #print(reason)
 ########### puuting Item in dynamo DB ####################################################3
-    client.put_item(tablename,Item={'Timestamp':{'S' : timestamp}, 'Reason':{'S':reason} })
+    client.put_item(TableName= tablename,Item={'Timestamp':{'S' : timestamp}, 'Reason':{'S':reason} })
         
 
 
