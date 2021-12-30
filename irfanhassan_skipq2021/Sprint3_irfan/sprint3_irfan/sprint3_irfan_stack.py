@@ -28,24 +28,18 @@ class Sprint3IrfanStack(cdk.Stack):
         lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
+############ #creating lambda and dynamodb table to store url #############################################################
+        db_lambda_role = self.create_db_lambda_role()
+        url_table=self.create_table(id='urltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
+        s3bucket_lambda.add_environment('urltable_name', url_table.table_name)
+        s3bucket_lambda = self.create_lambda('s3bucketlammbda',"./resources",'s3_dynamodb.lambda_handler',db_lambda_role)
+        url_table.grant_full_access(s3bucket_lambda)
 ############ #creating dynamodb table to store alarm #############################################################
 
-        dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
-        db_lambda_role = self.create_db_lambda_role()
-        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
-        dynamo_table.grant_full_access(db_lamda)
-
-        db_lamda.add_environment('table_name', dynamo_table.table_name)
-        
-                
-############ #creating dynamodb table to store url #############################################################
-        s3bucket_lambda_role = self.create_db_lambda_role()
-        s3bucket_lambda = self.create_lambda('s3bucketlammbda',"./resources",'s3_dynamodb.lambda_handler',s3bucket_lambda_role)
-       
-        url_table=self.create_table(id='urltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
-        url_table.grant_full_access(s3bucket_lambda)
-        s3bucket_lambda.add_environment('urltable_name', url_table.table_name)
-        
+    #    dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
+    #    db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
+    #    dynamo_table.grant_full_access(db_lamda)
+     #   db_lamda.add_environment('table_name', dynamo_table.table_name)
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
         
     #    sns_topic = sns.Topic(self, 'WebHealth')
