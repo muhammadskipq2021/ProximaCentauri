@@ -31,7 +31,7 @@ class Sprint3IrfanStack(cdk.Stack):
 ############ #creating lambda and dynamodb table to store url #############################################################
         db_lambda_role = self.create_db_lambda_role()
         url_table=self.create_table(id='urltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
-        s3bucket_lambda.add_environment('urltable_name', url_table.table_name)
+        s3bucket_lambda.add_environment('table_name', url_table.table_name)
         s3bucket_lambda = self.create_lambda('s3bucketlammbda',"./resources",'s3_dynamodb.lambda_handler',db_lambda_role)
         url_table.grant_full_access(s3bucket_lambda)
 ############ #creating dynamodb table to store alarm #############################################################

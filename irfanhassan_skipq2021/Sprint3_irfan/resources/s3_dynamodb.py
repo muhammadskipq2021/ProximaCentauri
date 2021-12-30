@@ -6,6 +6,6 @@ def lambda_handler(event,context):
     value = dict()
     client = boto3.client('dynamodb')
     list_url=bucket().bucket_as_list()
-    tablename = os.getenv('urltable_name')#getting table name
+    tablename = os.getenv('table_name')#getting table name
     for url in list_url:
         client.put_item(TableName= tablename,Item={'URL':{'S' : url}})
