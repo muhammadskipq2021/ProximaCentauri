@@ -23,16 +23,42 @@ class Sprint3IrfanStack(cdk.Stack):
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-########## #creating lambda roll and lambda for webhealth  ####################################################################
+########## #creating lambda roll and lambda for webhealth  ##########################################################################
 
         lambda_role = self.create_lambda_role()
-    #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
+    
+############ #creating dynamo table to store URL  ###################################################################################
+        url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
+        url_table=self.create_table(id='irfanurltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
+        url_table.grant_full_access(url_lambda)
+        url_lambda.add_environment('table_name', url_table.table_name)
+        
+####    adding s3bucket event to trigger url_labda       ##########################################################################
+        bucket = s3.Bucket(self, "urls3bucket")
+        url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
+
+####### Adding API GateWay ##########################################################################################################
+        apigateway_lambda=self.create_lambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
+        apigateway_lambda.add_environment('table_name', url_table.table_name)
+        url_table.grant_full_access(apigateway_lambda)
+        url_table.grant_full_access(webhealth_lambda)
+        #https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway/README.html
+        api = apigateway.LambdaRestApi(self, "myapi",handler=backend) #REST API
+        items = api.root.add_resource("items")
+        items.add_method("GET") # GET items
+        items.add_method("PUT") # PUT items
+        items.add_method("DELETE") # PUT items
+        
+        
+    ###### Periodic web health lambda ###############################################################################################
+        
+   #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
         webhealth_lambda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
         lambda_schedule = event_.Schedule.rate(cdk.Duration.minutes(1))
         lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
-############ #creating dynamodb table to store alarm #############################################################
+############ #creating dynamodb table to store alarm ################################################################################
 
         dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
@@ -40,21 +66,7 @@ class Sprint3IrfanStack(cdk.Stack):
         dynamo_table.grant_full_access(db_lamda)
         db_lamda.add_environment('table_name', dynamo_table.table_name)
         
-############ #creating dynamo table to store URL  #############################################################
-        url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
-        url_table=self.create_table(id='irfanurltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
-        url_table.grant_full_access(url_lambda)
-        url_lambda.add_environment('table_name', url_table.table_name)
-        
-####    adding s3bucket event to trigger url_labda       #####################################################
-        bucket = s3.Bucket(self, "urls3bucket")
-        url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
 
-####### Adding API GateWay ####################################################################################
-        apigateway_lambda=self.create_dblambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
-        apigateway_lambda.add_environment('table_name', url_table.table_name)
-        url_table.grant_full_access(apigateway_lambda)
-        url_table.grant_full_access(webhealth_lambda)
         
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
 
