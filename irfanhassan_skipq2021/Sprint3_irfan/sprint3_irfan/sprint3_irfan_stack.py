@@ -5,6 +5,7 @@ from aws_cdk import (
     aws_events_targets as targets_,
     aws_cloudwatch as cloudwatch_,
     aws_iam,
+    aws_s3 as s3,
     aws_sns as sns,
     aws_sns_subscriptions as subsribe,
     aws_cloudwatch_actions as cw_actions,
@@ -29,18 +30,25 @@ class Sprint3IrfanStack(cdk.Stack):
         lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
-############ #creating dynamodb table  #############################################################
+############ #creating dynamodb table to store alarm #############################################################
 
         dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
-        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
+        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'Monitor_webhealth.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
-
-############## adding dynamo db table name in table_name variale ##################################
         db_lamda.add_environment('table_name', dynamo_table.table_name)
         
-############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
+############ #creating dynamo table to store URL  #############################################################
+        url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
+        url_table=self.create_table(id='irfanurltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
+        url_table.grant_full_access(url_lambda)
+        url_lambda.add_environment('table_name', url_table.table_name)
         
+####    creaating s3bucket event to trigger url_labda       #####################################################
+        bucket = s3.Bucket(self, "urls3bucket")
+        url_lambda.add_event_source(sources_.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
+############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
+      ''''  
         sns_topic = sns.Topic(self, 'WebHealth')
         sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
         sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
@@ -107,7 +115,7 @@ class Sprint3IrfanStack(cdk.Stack):
         #### Defining code deployment when alarm generate .
         #codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
-
+''''
 #creating lambda role function to give all access to lambda
     def create_lambda_role(self):
         lambda_role = aws_iam.Role(self, "lambda-role", 

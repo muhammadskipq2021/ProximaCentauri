@@ -8,4 +8,4 @@ def lambda_handler(event,context):
     list_url=bucket().bucket_as_list()
     tablename = os.getenv('table_name')#getting table name
     for url in list_url:
-        client.put_item(TableName= tablename,Item={'URL':{'S' : url}})
+        client.put_item(TableName= tablename,Item={'URL':{'S' : url}}) #putting url from json file to dynamoDB
