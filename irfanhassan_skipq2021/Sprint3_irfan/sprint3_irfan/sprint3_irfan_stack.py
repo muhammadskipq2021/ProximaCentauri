@@ -13,7 +13,7 @@ from aws_cdk import (
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
-from resources.s3bucket_read import s3bucket_read as bucket 
+from resources.s3bucket_read import s3bucket_to_dynamoDB as bucket
 
 class Sprint3IrfanStack(cdk.Stack):
 
