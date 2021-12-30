@@ -13,6 +13,7 @@ from aws_cdk import (
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
+from resources.s3bucket_read import s3bucket_read as bucket 
 
 class Sprint3IrfanStack(cdk.Stack):
 
@@ -28,18 +29,16 @@ class Sprint3IrfanStack(cdk.Stack):
         lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
-############ #creating lambda and dynamodb table to store url #############################################################
-        db_lambda_role = self.create_db_lambda_role()
-     #   url_table=self.create_table(id='urltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
-    #    s3bucket_lambda.add_environment('table_name', url_table.table_name)
-    #    s3bucket_lambda = self.create_lambda('s3bucketlammbda',"./resources",'s3_dynamodb.lambda_handler',db_lambda_role)
-   #     url_table.grant_full_access(s3bucket_lambda)
-############ #creating dynamodb table to store alarm #############################################################
+############ #creating dynamodb table  #############################################################
 
         dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
+        db_lambda_role = self.create_db_lambda_role()
         db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
+
+############## adding dynamo db table name in table_name variale ##################################
         db_lamda.add_environment('table_name', dynamo_table.table_name)
+        
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
         
         sns_topic = sns.Topic(self, 'WebHealth')
@@ -61,14 +60,14 @@ class Sprint3IrfanStack(cdk.Stack):
                     metric_name=constant_.URL_Aailibilty, 
                     dimensions_map=Dimensions,
                     period=cdk.Duration.minutes(0.5),
-                   label=('availabilty_metric'+' '+url )
+                    label=('availabilty_metric'+' '+url )
                     )
                     
         ############# adding availability AlARM on availabilty metric into cloud watch #################################
             availabilty_Alarm=cloudwatch_.Alarm(self, 
                     id ="AvailabiltyAlarm"+" "+url ,
                     metric = availabilty_metric,
-                   comparison_operator = cloudwatch_.ComparisonOperator.LESS_THAN_THRESHOLD,
+                    comparison_operator = cloudwatch_.ComparisonOperator.LESS_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
                     threshold =1
@@ -92,21 +91,21 @@ class Sprint3IrfanStack(cdk.Stack):
         #
         ######### #sending sns topic to subscriber when alarm preached ##############################
             availabilty_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
-           latency_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
+            latency_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
             
 #############    Automate ROLBACNK  ############################################################
 
-        durationMetric= cloudwatch_.Metric(namespace='AWS/Lambda', metric_name='Duration',
-        dimensions_map={'FunctionName': webhealth_lambda.function_name},period=cdk.Duration.minutes(1)) 
+        #durationMetric= cloudwatch_.Metric(namespace='AWS/Lambda', metric_name='Duration',
+        #dimensions_map={'FunctionName': webhealth_lambda.function_name},period=cdk.Duration.minutes(1)) 
         #if it failed then alarm generate.. 
-        alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
-        threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
-        evaluation_periods=1)
+        #alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
+        #threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        #evaluation_periods=1)
         ###Defining alias of  my web health lambda 
-        Web_health_alias=lambda_.Alias(self, "AlaisForWebHealthLambda", alias_name="Web_Health_Alias",
-        version=webhealth_lambda.current_version) 
+        #Web_health_alias=lambda_.Alias(self, "AlaisForWebHealthLambda", alias_name="Web_Health_Alias",
+        #version=webhealth_lambda.current_version) 
         #### Defining code deployment when alarm generate .
-        codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
+        #codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
 
 #creating lambda role function to give all access to lambda
