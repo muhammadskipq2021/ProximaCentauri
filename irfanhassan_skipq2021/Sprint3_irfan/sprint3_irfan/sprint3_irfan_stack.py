@@ -11,7 +11,8 @@ from aws_cdk import (
     aws_sns_subscriptions as subsribe,
     aws_cloudwatch_actions as cw_actions,
     aws_dynamodb as db,
-    aws_codedeploy as codedeploy
+    aws_codedeploy as codedeploy,
+    aws_apigateway as apigateway_
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
@@ -45,9 +46,16 @@ class Sprint3IrfanStack(cdk.Stack):
         url_table.grant_full_access(url_lambda)
         url_lambda.add_environment('table_name', url_table.table_name)
         
-####    creaating s3bucket event to trigger url_labda       #####################################################
+####    adding s3bucket event to trigger url_labda       #####################################################
         bucket = s3.Bucket(self, "urls3bucket")
         url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
+
+####### Adding API GateWay ####################################################################################
+        apigateway_lambda=self.create_dblambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
+        apigateway_lambda.add_environment('table_name', url_table.table_name)
+        url_table.grant_full_access(apigateway_lambda)
+        url_table.grant_full_access(webhealth_lambda)
+        
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
 
 #creating lambda role function to give all access to lambda
