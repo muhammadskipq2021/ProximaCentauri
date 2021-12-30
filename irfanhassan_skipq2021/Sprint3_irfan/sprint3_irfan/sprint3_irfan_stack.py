@@ -5,6 +5,7 @@ from aws_cdk import (
     aws_events_targets as targets_,
     aws_cloudwatch as cloudwatch_,
     aws_iam,
+    aws_lambda_event_sources as sources,
     aws_s3 as s3,
     aws_sns as sns,
     aws_sns_subscriptions as subsribe,
@@ -46,7 +47,7 @@ class Sprint3IrfanStack(cdk.Stack):
         
 ####    creaating s3bucket event to trigger url_labda       #####################################################
         bucket = s3.Bucket(self, "urls3bucket")
-        url_lambda.add_event_source(sources_.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
+        url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
 
 #creating lambda role function to give all access to lambda
