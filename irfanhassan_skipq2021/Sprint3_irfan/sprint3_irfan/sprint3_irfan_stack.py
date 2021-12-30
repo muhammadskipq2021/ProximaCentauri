@@ -26,6 +26,23 @@ class Sprint3IrfanStack(cdk.Stack):
 ########## #creating lambda roll and lambda for webhealth  ##########################################################################
 
         lambda_role = self.create_lambda_role()
+    ###### Periodic web health lambda ###############################################################################################
+        
+   #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
+        webhealth_lambda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
+        lambda_schedule = event_.Schedule.rate(cdk.Duration.minutes(1))
+        lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
+        our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
+                
+############ #creating dynamodb table to store alarm ################################################################################
+
+        dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
+        db_lambda_role = self.create_db_lambda_role()
+        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'Monitor_webhealth.lambda_handler',db_lambda_role)
+        dynamo_table.grant_full_access(db_lamda)
+        db_lamda.add_environment('table_name', dynamo_table.table_name)
+        
+
     
 ############ #creating dynamo table to store URL  ###################################################################################
         url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
@@ -48,23 +65,6 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("GET") # GET items
         items.add_method("PUT") # PUT items
         items.add_method("DELETE") # PUT items
-        
-        
-    ###### Periodic web health lambda ###############################################################################################
-        
-   #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
-        webhealth_lambda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
-        lambda_schedule = event_.Schedule.rate(cdk.Duration.minutes(1))
-        lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
-        our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
-                
-############ #creating dynamodb table to store alarm ################################################################################
-
-        dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
-        db_lambda_role = self.create_db_lambda_role()
-        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'Monitor_webhealth.lambda_handler',db_lambda_role)
-        dynamo_table.grant_full_access(db_lamda)
-        db_lamda.add_environment('table_name', dynamo_table.table_name)
         
 
         
