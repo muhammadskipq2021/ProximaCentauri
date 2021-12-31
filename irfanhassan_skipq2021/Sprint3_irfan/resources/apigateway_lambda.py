@@ -23,7 +23,7 @@ def lambda_handler(event,context):
         response="The item has been successfully deleted from DynamoDB table."
     elif operation=="GET":
         url_list=dbscan.read_table(tablename)
-        response="url is done"
+        response=url_list
     else:
         response="invalid request."
     
