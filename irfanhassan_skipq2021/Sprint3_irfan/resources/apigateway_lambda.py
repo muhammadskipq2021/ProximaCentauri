@@ -27,7 +27,7 @@ def lambda_handler(event,context):
     else:
         response="invalid request."
     
-    return {'statusCode':200,'body':json.dumps(reponse)}   
+    return {'statusCode':200,'body':json.dumps(response)}   
     
     
     
