@@ -1,9 +1,10 @@
 import boto3
 import os
 import json
-
+from tablescan import tablescan 
 def lambda_handler(event,context):
     value = dict()
+    dbscan=tablescan()
     client = boto3.client('dynamodb')
     #print(event)
     tablename = os.getenv('table_name')
@@ -20,7 +21,7 @@ def lambda_handler(event,context):
         client.delete_item(TableName= tablename,Item={'URL':{'S' : url}}) #https://stackoverflow.com/questions/64187825/how-to-delete-all-the-items-in-the-dynamodb-with-boto3
         response="The item has been successfully deleted from DynamoDB table."
     elif operation=="GET":
-        url_list=read_table(tablename)
+        url_list=dbscan.read_table(tablename)
         response="url is done"
     else:
         response="invalid request."
@@ -29,9 +30,6 @@ def lambda_handler(event,context):
     
     
     
-    def read_table(table_name):
-        client = boto3.client('dynamodb')
-        table_data = client.scan(TableName=table_name,AttributesToGet=['URL'])
-        return table_data
+
         
         
