@@ -56,11 +56,13 @@ class Sprint3IrfanStack(cdk.Stack):
 
 ####### Adding API GateWay ##########################################################################################################
         apigateway_lambda=self.create_lambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
+        apigateway_lambda.grant_invoke( aws_iam.ServicePrincipal("apigateway.amazonaws.com"))
         apigateway_lambda.add_environment('table_name', url_table.table_name)
         url_table.grant_full_access(apigateway_lambda)
         url_table.grant_full_access(webhealth_lambda)
         #https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway/README.html
         api = apigateway_.LambdaRestApi(self, "irfanAPI",handler=apigateway_lambda) #REST API
+        
         items = api.root.add_resource("items")
         items.add_method("GET") # GET items
         items.add_method("PUT") # PUT items
