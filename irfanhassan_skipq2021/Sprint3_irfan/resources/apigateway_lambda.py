@@ -19,7 +19,7 @@ def lambda_handler(event,context):
         response="The item has been successfully putted into DynamoDB table."
     elif operation=="DELETE":
         url=event['body']
-        client.delete_item(TableName= tablename,Item={'URL':{'S' : url}}) #https://stackoverflow.com/questions/64187825/how-to-delete-all-the-items-in-the-dynamodb-with-boto3
+        client.delete_item(TableName= tablename,Key={'URL':{'S' : url}}) #https://stackoverflow.com/questions/64187825/how-to-delete-all-the-items-in-the-dynamodb-with-boto3
         response="The item has been successfully deleted from DynamoDB table."
     elif operation=="GET":
         url_list=dbscan.read_table(tablename)
