@@ -16,7 +16,7 @@ from aws_cdk import (
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
-from resources.s3bucket_read import s3bucket_read as bucket 
+from resources.tablescan import tablescan 
 
 class Sprint3IrfanStack(cdk.Stack):
 
@@ -68,7 +68,8 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("PUT") # PUT items
         items.add_method("DELETE") # PUT items
         items.add_method("POST")  #update items
-
+    
+    url_list=tablescan().read_table(url_table.table_name)
         
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
 
