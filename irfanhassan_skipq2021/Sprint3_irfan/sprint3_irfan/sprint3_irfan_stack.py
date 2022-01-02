@@ -69,9 +69,74 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("DELETE") # PUT items
         items.add_method("POST")  #update items
     
-        url_list=tablescan().read_table(url_table.table_name)
-        
+            
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
+        
+        sns_topic = sns.Topic(self, 'WebHealth')
+        sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
+        sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
+        
+##############  reading URL from URL DynamoDB table  ##############################################        
+
+        list_url=tablescan().read_table(constant_.url_table)
+
+#############  adding metrics and alarm for each webpage ##############################################
+
+        for url in list_url:                   
+            Dimensions={'URL': url }
+            
+        ############# adding availability matrics into cloud watch #################################
+        
+            availabilty_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
+                    metric_name=constant_.URL_Aailibilty, 
+                    dimensions_map=Dimensions,
+                    period=cdk.Duration.minutes(0.5),
+                    label=('availabilty_metric'+' '+url )
+                    )
+                    
+        ############# adding availability AlARM on availabilty metric into cloud watch #################################
+            availabilty_Alarm=cloudwatch_.Alarm(self, 
+                    id ="AvailabiltyAlarm"+" "+url ,
+                    metric = availabilty_metric,
+                    comparison_operator = cloudwatch_.ComparisonOperator.LESS_THAN_THRESHOLD,
+                    datapoints_to_alarm=1,
+                    evaluation_periods=1,
+                    threshold =1
+                    )
+        ############# adding latency matrics into cloud watch #################################
+            latency_metric=cloudwatch_.Metric(namespace=constant_.URL_NameSpace, 
+                    metric_name=constant_.URL_Latency, 
+                    dimensions_map=Dimensions,
+                    period=cdk.Duration.minutes(0.5),
+                    label='latency_metric'+" "+url 
+                    )
+               #     
+        ############# adding  AlARM on latency metric into cloud watch #################################            
+            latency_Alarm=cloudwatch_.Alarm(self, id="latencyAlarm"+" "+url ,
+                    metric = latency_metric,
+                    comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
+                    datapoints_to_alarm=1,
+                    evaluation_periods=1,
+                    threshold = .28
+                    )
+        #
+        ######### #sending sns topic to subscriber when alarm preached ##############################
+            availabilty_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
+            latency_Alarm.add_alarm_action(cw_actions.SnsAction(sns_topic))
+            
+#############    Automate ROLBACNK  ############################################################
+
+        #durationMetric= cloudwatch_.Metric(namespace='AWS/Lambda', metric_name='Duration',
+        #dimensions_map={'FunctionName': webhealth_lambda.function_name},period=cdk.Duration.minutes(1)) 
+        #if it failed then alarm generate.. 
+        #alarm_indication_Failed=cloudwatch_.Alarm(self, 'Alarm_indication_Failed', metric=durationMetric, 
+        #threshold=5000, comparison_operator= cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD, 
+        #evaluation_periods=1)
+        ###Defining alias of  my web health lambda 
+        #Web_health_alias=lambda_.Alias(self, "AlaisForWebHealthLambda", alias_name="Web_Health_Alias",
+        #version=webhealth_lambda.current_version) 
+        #### Defining code deployment when alarm generate .
+        #codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
 
 #creating lambda role function to give all access to lambda
     def create_lambda_role(self):
