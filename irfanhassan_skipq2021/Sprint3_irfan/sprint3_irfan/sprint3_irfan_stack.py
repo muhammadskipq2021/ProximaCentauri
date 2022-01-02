@@ -15,7 +15,7 @@ from aws_cdk import (
     aws_apigateway as apigateway_
 )
 from resources import constants as constant_
-from resources.s3bucket_read import s3bucket_read as bucket 
+from resources.s3bucket_read import s3bucket_read as bucket_ 
 
 class Sprint3IrfanStack(cdk.Stack):
 
@@ -76,7 +76,7 @@ class Sprint3IrfanStack(cdk.Stack):
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
 
-        list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list();
+        list_url=bucket_(constant_.bucket,constant_.file_name).bucket_as_list();
 
 #############  adding metrics and alarm for each webpage ##############################################
 
