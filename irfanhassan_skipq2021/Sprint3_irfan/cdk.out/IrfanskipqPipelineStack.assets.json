@@ -1,17 +1,17 @@
 {
   "version": "15.0.0",
   "files": {
-    "5de34c96e40a5b8da5a09c621541fc34b3e037b625f2829d850a44eea601ed67": {
+    "8b25a141667d1f35d1871e1acafd226583990c8d87a30b3d7f03ef35551ff438": {
       "source": {
         "path": "IrfanskipqPipelineStack.template.json",
         "packaging": "file"
       },
       "destinations": {
         "315997497220-us-east-2": {
-          "bucketName": "cdk-mirfan-assets-315997497220-us-east-2",
-          "objectKey": "5de34c96e40a5b8da5a09c621541fc34b3e037b625f2829d850a44eea601ed67.json",
+          "bucketName": "cdk-mirfan5-assets-315997497220-us-east-2",
+          "objectKey": "8b25a141667d1f35d1871e1acafd226583990c8d87a30b3d7f03ef35551ff438.json",
           "region": "us-east-2",
-          "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
+          "assumeRoleArn": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan5-file-publishing-role-315997497220-us-east-2"
         }
       }
     }

@@ -95,7 +95,7 @@
                                               {
                                                 "Ref": "AWS::Partition"
                                               },
-                                              ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                              ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                             ]
                                           ]
                                         }
@@ -260,7 +260,7 @@
                                             {
                                               "Ref": "AWS::Partition"
                                             },
-                                            ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                            ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                           ]
                                         ]
                                       }
@@ -470,7 +470,7 @@
                                         {
                                           "Ref": "AWS::Partition"
                                         },
-                                        ":iam::315997497220:role/cdk-mirfan-cfn-exec-role-315997497220-us-east-2"
+                                        ":iam::315997497220:role/cdk-mirfan5-cfn-exec-role-315997497220-us-east-2"
                                       ]
                                     ]
                                   },
@@ -487,7 +487,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                      ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                     ]
                                   ]
                                 }
@@ -514,7 +514,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                      ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                     ]
                                   ]
                                 }
@@ -564,7 +564,7 @@
                                         {
                                           "Ref": "AWS::Partition"
                                         },
-                                        ":iam::315997497220:role/cdk-mirfan-cfn-exec-role-315997497220-us-east-2"
+                                        ":iam::315997497220:role/cdk-mirfan5-cfn-exec-role-315997497220-us-east-2"
                                       ]
                                     ]
                                   },
@@ -581,7 +581,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                      ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                     ]
                                   ]
                                 }
@@ -608,7 +608,7 @@
                                       {
                                         "Ref": "AWS::Partition"
                                       },
-                                      ":iam::315997497220:role/cdk-mirfan-deploy-role-315997497220-us-east-2"
+                                      ":iam::315997497220:role/cdk-mirfan5-deploy-role-315997497220-us-east-2"
                                     ]
                                   ]
                                 }
@@ -1229,21 +1229,21 @@
                       "version": "1.135.0"
                     }
                   },
-                  "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2": {
-                    "id": "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2",
-                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2",
+                  "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2": {
+                    "id": "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2",
+                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.135.0"
                     }
                   },
-                  "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2": {
-                    "id": "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2",
-                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2",
+                  "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2": {
+                    "id": "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2",
+                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2",
                     "children": {
                       "8389e75f-0810-4838-bf64-d6f85a95cf83": {
                         "id": "8389e75f-0810-4838-bf64-d6f85a95cf83",
-                        "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-deploy-role-315997497220-us-east-2/8389e75f-0810-4838-bf64-d6f85a95cf83",
+                        "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-deploy-role-315997497220-us-east-2/8389e75f-0810-4838-bf64-d6f85a95cf83",
                         "constructInfo": {
                           "fqn": "@aws-cdk/core.Construct",
                           "version": "1.135.0"
@@ -1255,17 +1255,17 @@
                       "version": "1.135.0"
                     }
                   },
-                  "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2": {
-                    "id": "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2",
-                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2",
+                  "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2": {
+                    "id": "arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2",
+                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/arn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.135.0"
                     }
                   },
-                  "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2": {
-                    "id": "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2",
-                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan-cfn-exec-role-315997497220-us-east-2",
+                  "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2": {
+                    "id": "ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2",
+                    "path": "IrfanskipqPipelineStack/pipeline/Pipeline/ImmutableRolearn:${AWS::Partition}:iam::315997497220:role--cdk-mirfan5-cfn-exec-role-315997497220-us-east-2",
                     "constructInfo": {
                       "fqn": "@aws-cdk/core.Resource",
                       "version": "1.135.0"
@@ -1716,7 +1716,7 @@
                                       "Effect": "Allow",
                                       "Resource": [
                                         {
-                                          "Fn::Sub": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan-file-publishing-role-315997497220-us-east-2"
+                                          "Fn::Sub": "arn:${AWS::Partition}:iam::315997497220:role/cdk-mirfan5-file-publishing-role-315997497220-us-east-2"
                                         }
                                       ]
                                     },
@@ -1950,7 +1950,7 @@
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
                             "code": {
-                              "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
+                              "s3Bucket": "cdk-mirfan5-assets-315997497220-us-east-2",
                               "s3Key": "d507e4a148af450943ea06e8546e6ea3dbbfe574e78400cb180d2b7e728f7e5f.zip"
                             },
                             "role": {
@@ -2265,7 +2265,7 @@
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
                             "code": {
-                              "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
+                              "s3Bucket": "cdk-mirfan5-assets-315997497220-us-east-2",
                               "s3Key": "d507e4a148af450943ea06e8546e6ea3dbbfe574e78400cb180d2b7e728f7e5f.zip"
                             },
                             "role": {
@@ -2989,7 +2989,7 @@
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
                             "code": {
-                              "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
+                              "s3Bucket": "cdk-mirfan5-assets-315997497220-us-east-2",
                               "s3Key": "d507e4a148af450943ea06e8546e6ea3dbbfe574e78400cb180d2b7e728f7e5f.zip"
                             },
                             "role": {
@@ -3304,7 +3304,7 @@
                           "aws:cdk:cloudformation:type": "AWS::Lambda::Function",
                           "aws:cdk:cloudformation:props": {
                             "code": {
-                              "s3Bucket": "cdk-mirfan-assets-315997497220-us-east-2",
+                              "s3Bucket": "cdk-mirfan5-assets-315997497220-us-east-2",
                               "s3Key": "d507e4a148af450943ea06e8546e6ea3dbbfe574e78400cb180d2b7e728f7e5f.zip"
                             },
                             "role": {
