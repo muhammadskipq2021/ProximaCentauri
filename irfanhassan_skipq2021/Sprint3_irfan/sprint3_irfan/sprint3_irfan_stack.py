@@ -75,7 +75,7 @@ class Sprint3IrfanStack(cdk.Stack):
 
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
-
+        #
         list_url=bucket_(constant_.bucket,constant_.file_name).bucket_as_list();
 
 #############  adding metrics and alarm for each webpage ##############################################
@@ -115,7 +115,7 @@ class Sprint3IrfanStack(cdk.Stack):
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
-                    threshold = .28
+                    threshold = 0.32
                     )
         #
         ######### #sending sns topic to subscriber when alarm preached ##############################
