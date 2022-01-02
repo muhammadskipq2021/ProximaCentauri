@@ -6,7 +6,7 @@ s3= boto3.client('s3')
 
 class s3bucket_read:
     def __init__(self):
-        self.Object = boto3.client('s3').get_object(Bucket="irfanskipq",Key="URL.json")
+        self.Object = boto3.client('s3').get_object(Bucket="irfanskipq",Key="URLS.json")
     
     def bucket_as_list(self  ):
         response= s3.get_object(Bucket="irfanskipq",Key="URLS.json")
