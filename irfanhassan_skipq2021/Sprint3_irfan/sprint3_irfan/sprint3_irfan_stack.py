@@ -67,7 +67,7 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("GET") # GET items
         items.add_method("PUT") # PUT items
         items.add_method("DELETE") # PUT items
-        
+        items.add_method("POST")  #update items
 
         
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############

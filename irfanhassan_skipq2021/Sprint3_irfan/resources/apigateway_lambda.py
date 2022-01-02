@@ -19,11 +19,27 @@ def lambda_handler(event,context):
         response="The item has been successfully putted into DynamoDB table."
     elif operation=="DELETE":
         url=event['body']
-        client.delete_item(TableName= tablename,Key={'URL':{'S' : url}}) #https://stackoverflow.com/questions/64187825/how-to-delete-all-the-items-in-the-dynamodb-with-boto3
-        response="The item has been successfully deleted from DynamoDB table."
+        url_list=dbscan.read_table(tablename)
+        if url in url_list: 
+            client.delete_item(TableName= tablename,Key={'URL':{'S' : url}}) #https://stackoverflow.com/questions/64187825/how-to-delete-all-the-items-in-the-dynamodb-with-boto3
+            response="The item has been successfully deleted from DynamoDB table."
+        else:
+            response="Failed to delete: The Item is not available in DynamoDB table."
     elif operation=="GET":
         url_list=dbscan.read_table(tablename)
         response=url_list
+    elif operation=="POST":
+        url=event['body']
+        url_find=url.split(",")
+        old_url=url_find[0]
+        new_url=url_find[1]
+        url_list=dbscan.read_table(tablename)
+        if old_url in url_list:
+            client.delete_item(TableName= tablename,Key={'URL':{'S' : old_url}})
+            client.put_item(TableName= tablename,Item={'URL':{'S' : new_url}})
+            response="The item has been successfully updated from DynamoDB table."
+        else:
+            response="Failed to update: The Item is not available in DynamoDB table."
     else:
         response="invalid request."
     
