@@ -69,7 +69,7 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("DELETE") # PUT items
         items.add_method("POST")  #update items
     
-    url_list=tablescan().read_table(url_table.table_name)
+        url_list=tablescan().read_table(url_table.table_name)
         
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
 
