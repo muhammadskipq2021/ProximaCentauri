@@ -5,5 +5,6 @@ class tablescan:
         client = boto3.client('dynamodb')
         table_data = client.scan(TableName=table_name,AttributesToGet=['URL'])
         url_list=table_data["Items"]
-    #    url_list= list(url.values())
+        for n in url_list:
+            url_list[n]=url_list[n]['URL']['S']
         return url_list
