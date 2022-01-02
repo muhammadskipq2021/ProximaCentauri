@@ -1,5 +1,5 @@
-# ProximaCentauri Sprint2
-# Continuous integration and delivery (CI/CD) using CDK Pipelines
+# ProximaCentauri Sprint3
+# Public CRUD API Gateway endpoint for web crawler
 
 ## Table of contents
 * [Project Description](#Project-Description)
@@ -8,7 +8,7 @@
 
 
 ## Project Description
-In this project, I create CI/CD pipeline having Beta and Prod stage using CDK. I set up the source from my Github repository for CI/CD Pipeline. CI/CDpipeline will get the web health monitor application's source code from the GitHub repository and will automate the process of building, testing, and deploying the application. First, it installs requirements for source code and then synth the code. In the Beta stage,  it runs the unit test and integration test. After passing through the unittest, it deploys the source code. In Prodstage, it asks for manual approval then deploys the source code. When adding new stacks/stages or updating anything in the application, CI/CD pipeline automatically reconfigures itself to deploy those new stages and stacks.
+According to user requirements, As a web admin I created a public CRUD API Gateway for web crawler to create/read/update/delete teh target list containing the list of website/webpages to crawl.  
 
 ## Technologies 
 Project is created with follwoing AWS services
@@ -21,6 +21,7 @@ Project is created with follwoing AWS services
 * CodePipeline
 * Secret Manager
 * CloudFormation
+* API Gateway
 
 ## SetUp
 To run this project, follow these steps 
@@ -63,8 +64,10 @@ $ cdk deploy pipelinestack
 now all required requirements are done on machine. 
 * ### CodePipeline
 To check that your CDK pipeline is created successfully, open CodePipeline in AWS services  
-* ### Results
-Wwhen CI/CD pipeline is implemented successfully then open cloud watch to observe the web health of URLs and then check Email and dynamo DB Tables to see details of the alarm notifications.
+* ### Upload json file to S3 bucket
+When CI/CD pipeline is implemented successfully then upload json file on S3 bucket and check Dynamo DB table. All Url for webpages will be stored into DynamoDB table.
+* ### Test API Gateway method
+Open API Gateway, and then run method (add input if required for method) and observe chnages in DynamoDB table.  
 ### Author
 Muhammad Irfan Hassan Trainee @skipQ  muhammad.irfan.hassan.s@skipq.org
 
