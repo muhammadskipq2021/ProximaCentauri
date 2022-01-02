@@ -4,6 +4,7 @@ import json
 from tablescan import tablescan 
 def lambda_handler(event,context):
     value = dict()
+    dbscan=tablescan()
     client = boto3.client('dynamodb')
     #print(event)
     tablename = os.getenv('table_name')
