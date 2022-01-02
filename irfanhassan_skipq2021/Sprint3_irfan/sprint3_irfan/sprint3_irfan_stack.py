@@ -17,7 +17,7 @@ from aws_cdk import (
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
 #from resources.tablescan import tablescan 
-from resources.s3bucket_read import s3bucket_read as bucket
+from resources.s3bucket_read import s3bucket_read
 class Sprint3IrfanStack(cdk.Stack):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
@@ -78,7 +78,7 @@ class Sprint3IrfanStack(cdk.Stack):
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
 
-        list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list();
+        list_url=s3bucket_read(constant_.bucket,constant_.file_name).bucket_as_list();
 
 #############  adding metrics and alarm for each webpage ##############################################
 
