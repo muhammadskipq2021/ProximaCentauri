@@ -1,5 +1,5 @@
-# ProximaCentauri Sprint2
-# Continuous integration and delivery (CI/CD) using CDK Pipelines
+# ProximaCentauri Sprint3
+# Public Crud API Gateway endpoint for web crawler
 
 ## Table of contents
 * [Project Description](#Project-Description)
