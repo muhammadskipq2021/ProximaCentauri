@@ -16,8 +16,8 @@ from aws_cdk import (
 )
 #from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
-from resources.tablescan import tablescan 
-
+#from resources.tablescan import tablescan 
+from resources.s3bucket_read import s3bucket_read as bucket
 class Sprint3IrfanStack(cdk.Stack):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
