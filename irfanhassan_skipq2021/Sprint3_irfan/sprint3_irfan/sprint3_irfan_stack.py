@@ -78,7 +78,7 @@ class Sprint3IrfanStack(cdk.Stack):
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
 
-        list_url=bucket(constant_.bucket,constant_.filters).bucket_as_list();
+        list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list();
 
 #############  adding metrics and alarm for each webpage ##############################################
 
