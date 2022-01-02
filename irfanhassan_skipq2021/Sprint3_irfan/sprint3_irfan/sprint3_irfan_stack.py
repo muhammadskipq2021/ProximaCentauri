@@ -14,35 +14,38 @@ from aws_cdk import (
     aws_codedeploy as codedeploy,
     aws_apigateway as apigateway_
 )
-#from aws_cdk import aws_cloudwatch_actions as actions_
 from resources import constants as constant_
-#from resources.tablescan import tablescan 
-from resources.s3bucket_read import s3bucket_read
+from resources.s3bucket_read import s3bucket_read as bucket 
+
 class Sprint3IrfanStack(cdk.Stack):
 
     def __init__(self, scope: cdk.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
 
-########## #creating lambda roll and lambda for webhealth  ##########################################################################
+########## #creating lambda roll and lambda for webhealth  ####################################################################
 
         lambda_role = self.create_lambda_role()
-    ###### Periodic web health lambda ###############################################################################################
-        
-   #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
+    #    hi_lamda = self.create_lambda('heloHellammbda',"./resources",'lambda.lambda_handler',lambda_role)
         webhealth_lambda = self.create_lambda('FirstHellammbda',"./resources",'Monitor_webhealth.lambda_handler',lambda_role)
         lambda_schedule = event_.Schedule.rate(cdk.Duration.minutes(1))
         lambda_target = targets_.LambdaFunction(handler = webhealth_lambda)
         our_rule = event_.Rule(self, id = "MonitorwebHealth",enabled = True, schedule= lambda_schedule,targets =[lambda_target])
                 
-############ #creating dynamodb table to store alarm ################################################################################
+############ #creating dynamodb table  #############################################################
 
         dynamo_table=self.create_table(id='irfanhassantable', key=db.Attribute(name="Timestamp", type=db.AttributeType.STRING))
         db_lambda_role = self.create_db_lambda_role()
-        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'Monitor_webhealth.lambda_handler',db_lambda_role)
+        db_lamda = self.create_lambda('secondHellammbda',"./resources/",'dynamodb_lambda.lambda_handler',db_lambda_role)
         dynamo_table.grant_full_access(db_lamda)
+
+############## adding dynamo db table name in table_name variale ##################################
         db_lamda.add_environment('table_name', dynamo_table.table_name)
         
-
+############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
+        
+        sns_topic = sns.Topic(self, 'WebHealth')
+        sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
+        sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
     
 ############ #creating dynamo table to store URL  ###################################################################################
         url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
@@ -69,16 +72,11 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("DELETE") # PUT items
         items.add_method("POST")  #update items
     
-            
-############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
-        
-        sns_topic = sns.Topic(self, 'WebHealth')
-        sns_topic.add_subscription(subsribe.LambdaSubscription(fn = db_lamda))
-        sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
+
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
 
-        list_url=s3bucket_read(constant_.bucket,constant_.file_name).bucket_as_list();
+        list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list();
 
 #############  adding metrics and alarm for each webpage ##############################################
 
@@ -117,7 +115,7 @@ class Sprint3IrfanStack(cdk.Stack):
                     comparison_operator = cloudwatch_.ComparisonOperator.GREATER_THAN_THRESHOLD,
                     datapoints_to_alarm=1,
                     evaluation_periods=1,
-                    threshold = 0.30
+                    threshold = .28
                     )
         #
         ######### #sending sns topic to subscriber when alarm preached ##############################
@@ -137,6 +135,7 @@ class Sprint3IrfanStack(cdk.Stack):
         #version=webhealth_lambda.current_version) 
         #### Defining code deployment when alarm generate .
         #codedeploy.LambdaDeploymentGroup(self, "id",alias=Web_health_alias, alarms=[alarm_indication_Failed])
+
 
 #creating lambda role function to give all access to lambda
     def create_lambda_role(self):
