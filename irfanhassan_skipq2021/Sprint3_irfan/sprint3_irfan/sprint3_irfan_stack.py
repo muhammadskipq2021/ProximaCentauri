@@ -5,7 +5,7 @@ from aws_cdk import (
     aws_events_targets as targets_,
     aws_cloudwatch as cloudwatch_,
     aws_iam,
-    aws_lambda_event_sources as sources,
+#    aws_lambda_event_sources as sources,
     aws_s3 as s3,
     aws_sns as sns,
     aws_sns_subscriptions as subsribe,
@@ -48,29 +48,29 @@ class Sprint3IrfanStack(cdk.Stack):
         sns_topic.add_subscription(subsribe.EmailSubscription("muhammad.irfan.hassan.s@skipq.org"))
     
 ############ #creating dynamo table to store URL  ###################################################################################
-        url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
-        url_table=self.create_table(id='irfanurltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
-        url_table.grant_full_access(url_lambda)
-        url_lambda.add_environment('table_name', url_table.table_name)
+#        url_lambda = self.create_lambda('urllammbda',"./resources",'s3_dynamodb_lambda.lambda_handler',db_lambda_role)
+#        url_table=self.create_table(id='irfanurltable', key=db.Attribute(name="URL", type=db.AttributeType.STRING))
+#        url_table.grant_full_access(url_lambda)
+#        url_lambda.add_environment('table_name', url_table.table_name)
         #table_name=url_table['"TableDescription']['TableName']
 ####    adding s3bucket event to trigger url_labda       ##########################################################################
-        bucket = s3.Bucket(self, "urls3bucket")
-        url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
+#        bucket = s3.Bucket(self, "urls3bucket")
+#        url_lambda.add_event_source(sources.S3EventSource(bucket,events=[s3.EventType.OBJECT_CREATED],filters=[s3.NotificationKeyFilter(suffix=".json")]))
 
 ####### Adding API GateWay ##########################################################################################################
-        apigateway_lambda=self.create_lambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
-        apigateway_lambda.grant_invoke( aws_iam.ServicePrincipal("apigateway.amazonaws.com"))
-        apigateway_lambda.add_environment('table_name', url_table.table_name)
-        url_table.grant_full_access(apigateway_lambda)
-        url_table.grant_full_access(webhealth_lambda)
+ #       apigateway_lambda=self.create_lambda('ApiGateWayLambda', './resources','apigateway_lambda.lambda_handler' ,db_lambda_role)
+ #       apigateway_lambda.grant_invoke( aws_iam.ServicePrincipal("apigateway.amazonaws.com"))
+ #       apigateway_lambda.add_environment('table_name', url_table.table_name)
+ #       url_table.grant_full_access(apigateway_lambda)
+ #       url_table.grant_full_access(webhealth_lambda)
         #https://docs.aws.amazon.com/cdk/api/v1/python/aws_cdk.aws_apigateway/README.html
-        api = apigateway_.LambdaRestApi(self, "irfanAPI",handler=apigateway_lambda) #REST API
+#        api = apigateway_.LambdaRestApi(self, "irfanAPI",handler=apigateway_lambda) #REST API
         
-        items = api.root.add_resource("items")
-        items.add_method("GET") # GET items
-        items.add_method("PUT") # PUT items
-        items.add_method("DELETE") # PUT items
-        items.add_method("POST")  #update items
+#        items = api.root.add_resource("items")
+#        items.add_method("GET") # GET items
+#        items.add_method("PUT") # PUT items
+#        items.add_method("DELETE") # PUT items
+#        items.add_method("POST")  #update items
     
 
         
