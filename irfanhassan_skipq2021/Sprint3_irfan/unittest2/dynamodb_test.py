@@ -10,6 +10,7 @@ def test_dynamodb():
     dynamodb_table = [resource for resource in template['Resources'].values()  if resource['Type']=="AWS::DynamoDB::Table"]
     #assert len(dynamodb_table)==2
     assert 2==2  #
+    #
 
 
     
