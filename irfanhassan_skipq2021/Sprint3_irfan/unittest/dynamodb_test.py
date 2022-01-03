@@ -1,10 +1,10 @@
 import pytest
 from aws_cdk import core
 
-from sprint2_irfan.sprint2_irfan_stack import Sprint2IrfanStack
+from sprint3_irfan.sprint3_irfan_stack import Sprint3IrfanStack
 def test_dynamotdbable():
     app = core.App()
-    Sprint2IrfanStack(app, 'Stack')
+    Sprint3IrfanStack(app, 'Stack')
     temp = app.synth().get_stack_by_name('Stack').template
     dynamodb_table = [resource for resource in temp['Resources'].values()  if resource['Type']=="AWS::DynamoDB::Table"]
     print(len(dynamodb_table))
