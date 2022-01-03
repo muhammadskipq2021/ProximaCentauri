@@ -19,7 +19,7 @@ class IrfanPipelineStack(core.Stack):
         synth = pipelines.ShellStep('synth', input= source,
                 commands = ["cd irfanhassan_skipq2021/Sprint3","pip install aws-cdk.aws_cloudwatch_actions==1.135.0", 
                             "pip install -r requirements.txt ","npm install -g aws-cdk","cdk synth" ],
-                            primary_output_directory = "irfanhassan_skipq2021/Sprint2/cdk.out"
+                            primary_output_directory = "irfanhassan_skipq2021/Sprint3/cdk.out"
                             )
         pipeline = pipelines.CodePipeline(self,'pipeline',synth=synth)
         
