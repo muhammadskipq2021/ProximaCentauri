@@ -17,17 +17,17 @@ class IrfanPipelineStack(core.Stack):
 
 ##########  Installing the requirement and Build the Source ##############################################
         synth = pipelines.ShellStep('synth', input= source,
-                commands = ["cd irfanhassan_skipq2021/Sprint3_irfan","pip install aws-cdk.aws_cloudwatch_actions==1.135.0", 
+                commands = ["cd irfanhassan_skipq2021/Sprint2","pip install aws-cdk.aws_cloudwatch_actions==1.135.0", 
                             "pip install -r requirements.txt ","npm install -g aws-cdk","cdk synth" ],
-                            primary_output_directory = "irfanhassan_skipq2021/Sprint3_irfan/cdk.out"
+                            primary_output_directory = "irfanhassan_skipq2021/Sprint2/cdk.out"
                             )
         pipeline = pipelines.CodePipeline(self,'pipeline',synth=synth)
         
         
 ########   Adding Beta Stage with Unit Test and Initgration Test ###########################################
         betaStage = IrfanStage(self, "BetaStag", env = { 'account': '315997497220', 'region': 'us-east-2'})
-        test = pipelines.ShellStep('unit_test',commands=["cd irfanhassan_skipq2021/Sprint3_irfan", "pip install -r requirements.txt",
-        "pip install -U pytest","pytest unittest"])
+        test = pipelines.ShellStep('unit_test',commands=["cd irfanhassan_skipq2021/Sprint2", "pip install -r requirements.txt",
+        "pip install pytest","pytest unittest"])
         pipeline.add_stage(betaStage, pre = [test])
     
         
