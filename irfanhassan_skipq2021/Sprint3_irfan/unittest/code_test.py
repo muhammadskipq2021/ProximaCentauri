@@ -6,6 +6,8 @@ app=core.App()
 Sprint3IrfanStack(app, 'Stack')
 template=app.synth().get_stack_by_name('Stack').template
 ################# TEST 1: Lambda functions #############
+
+################## Test 01 ###########################################################################################
 def test_code():
     functions= [resource for resource in template['Resources'].values() if resource['Type']=='AWS::Lambda::Function']
-    assert 4==4
+    assert len(functions)==4  #number of lambda function should be 4 
