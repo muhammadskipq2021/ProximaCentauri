@@ -2,7 +2,7 @@ import pytest
 from aws_cdk import core
 #
 from sprint3_irfan.sprint3_irfan_stack import Sprint3IrfanStack
-def code_test():
+def test_code():
     app = core.App()
     Sprint3IrfanStack(app, 'Stack')
     temp = app.synth().get_stack_by_name('Stack').template
