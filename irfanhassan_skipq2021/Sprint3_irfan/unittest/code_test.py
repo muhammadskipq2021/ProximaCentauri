@@ -8,4 +8,5 @@ template=app.synth().get_stack_by_name('Stack').template
 ################# TEST 1: Lambda functions #############
 def test_code():
     functions= [resource for resource in template['Resources'].values() if resource['Type']=='AWS::Lambda::Function']
-    assert 4==4
+    print(len(functions))
+    assert len(functions)==4
