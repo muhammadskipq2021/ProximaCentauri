@@ -3,9 +3,10 @@ import pytest
 import requests
 from resources import constants as constants_
 from resources.tablescan import tablescan 
-dbscan=tablescan()
+
 
 def test_apigateway():
+    dbscan=tablescan()
     url_list=dbscan.read_table(constants_.url_table)
     get_url=requests.get('https://hwmcjcc01f.execute-api.us-east-2.amazonaws.com/prod/')
     ans=True
