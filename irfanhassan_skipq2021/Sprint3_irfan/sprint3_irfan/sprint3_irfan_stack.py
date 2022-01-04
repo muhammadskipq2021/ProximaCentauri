@@ -73,7 +73,6 @@ class Sprint3IrfanStack(cdk.Stack):
         items.add_method("DELETE") # PUT items
         items.add_method("POST")  #update items
     
-
         
 ##############  reading URL from URL DynamoDB table  ##############################################        
         #
