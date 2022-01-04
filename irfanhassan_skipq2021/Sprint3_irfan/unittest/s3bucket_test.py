@@ -7,7 +7,7 @@ Sprint3IrfanStack(app, 'Stack')
 template=app.synth().get_stack_by_name('Stack').template
 #unit test to check number of s3bucket 
 def test_s3bucket():
-    s3bucket = [resource for resource in template['Resources'].values()  if resource['Type']=="AWS::DynamoDB::Table"]
+    s3bucket = [resource for resource in template['Resources'].values()  if resource['Type']=="AWS::S3::Bucket"]
     #assert len(s3bucket)==2
     assert 2==2  #
     #
