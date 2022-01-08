@@ -148,7 +148,7 @@ class Sprint3IrfanStack(cdk.Stack):
         )
         return lambda_role
   
-        #
+        
 #creating lambda handler    
     def create_lambda(self,id, asset, handler,role):
         return lambda_.Function(self, id,
