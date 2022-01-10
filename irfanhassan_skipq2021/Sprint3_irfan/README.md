@@ -10,7 +10,7 @@
 ## Project Description
 Building a Front-End user interface for CRUD API Gateway using React JS and Chakra UI. This React APP will allow the user to search and get URLs from the Dynamo DB table. The React APP will be integrated into CRUD API Gateway and will send GET requests. Log in access will be enabled using the OAuth method. 
 
-## Technologies / Software
+## Technologies 
 Project is created with follwoing AWS services
 * Node JS 
 * Visual Studio Code 
