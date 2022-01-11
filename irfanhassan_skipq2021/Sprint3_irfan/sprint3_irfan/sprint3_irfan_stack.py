@@ -50,7 +50,7 @@ class Sprint3IrfanStack(cdk.Stack):
         branch = amplify.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
 
     # the properties below are optional
-    asset=asset,
+
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
         
         sns_topic = sns.Topic(self, 'WebHealth')
