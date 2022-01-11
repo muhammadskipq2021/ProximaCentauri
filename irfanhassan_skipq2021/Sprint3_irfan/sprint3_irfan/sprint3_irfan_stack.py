@@ -12,7 +12,9 @@ from aws_cdk import (
     aws_cloudwatch_actions as cw_actions,
     aws_dynamodb as db,
     aws_codedeploy as codedeploy,
-    aws_apigateway as apigateway_
+    aws_apigateway as apigateway_,
+    aws_amplify as amplify_,
+    aws_codebuild as codebuild_
 )
 from resources import constants as constant_
 from resources.s3bucket_read import s3bucket_read as bucket_ 
@@ -40,6 +42,9 @@ class Sprint3IrfanStack(cdk.Stack):
 
 ############## adding dynamo db table name in table_name variale ##################################
         db_lamda.add_environment('table_name', dynamo_table.table_name)
+
+############ deploying app using aws amplify ####################################################
+        amplify_myapp = amplify_.App(self, 'IrfanApp')
         
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
         
