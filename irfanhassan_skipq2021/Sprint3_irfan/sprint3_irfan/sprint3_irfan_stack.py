@@ -14,7 +14,8 @@ from aws_cdk import (
     aws_codedeploy as codedeploy,
     aws_apigateway as apigateway_,
     aws_amplify as amplify_,
-    aws_codebuild as codebuild_
+    aws_codebuild as codebuild_,
+    aws_s3_assets as s3_assets
 )
 from resources import constants as constant_
 from resources.s3bucket_read import s3bucket_read as bucket_ 
@@ -45,7 +46,11 @@ class Sprint3IrfanStack(cdk.Stack):
 
 ############ deploying app using aws amplify ####################################################
         amplify_myapp = amplify_.App(self, 'IrfanApp')
-        
+        App_s3_asset = s3_assets.Asset(self, "IrfanAppasset",path="/irfanskipq/build.zip")
+        branch = amplify.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
+
+    # the properties below are optional
+    asset=asset,
 ############# #adding SNS topic and adding dynao db lambda and myself as subscribe to sns topic using my email address #############
         
         sns_topic = sns.Topic(self, 'WebHealth')
