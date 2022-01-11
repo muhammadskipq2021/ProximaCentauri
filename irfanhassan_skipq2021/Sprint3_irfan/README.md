@@ -1,5 +1,5 @@
-# ProximaCentauri Sprint3
-# Public CRUD API Gateway endpoint for web crawler
+# ProximaCentauri Sprint4
+# Frond-End User Interface for CRUD API Gateway
 
 ## Table of contents
 * [Project Description](#Project-Description)
@@ -8,66 +8,46 @@
 
 
 ## Project Description
-According to user requirements, As a web admin I created a public CRUD API Gateway for web crawler to create/read/update/delete the target list containing the list of website/webpages to crawl.  
+Building a Front-End user interface for CRUD API Gateway using React JS and Chakra UI. This React APP will allow the user to search and get URLs from the Dynamo DB table. The React APP will be integrated into CRUD API Gateway and will send GET requests. Log in access will be enabled using the OAuth method. 
 
 ## Technologies 
 Project is created with follwoing AWS services
-* Lambda
-* CloudWatch
-* DynamoDB
-* SNS
-* Cloud9
-* S3
-* CodePipeline
-* Secret Manager
-* CloudFormation
-* API Gateway
+* Node JS 
+* Visual Studio Code 
+* React JS 
+* Chakra UI 
+* AWS Amplify
+
 
 ## SetUp
-To run this project, follow these steps 
-* ###  Environment creation on AWS
-First of all login in aws.amazon and create a virtual machine and install all requirements.
-* ### Store Personal access tokens 
-To get access to the Github repository, you have to generate Personal access tokens and then store Personal access tokens in AWS Secret Manager.
-* ### Setup Source
-At the beginning of the project, it's essential to set up the source. Store the code in your GitHub repository. Add the GitHub repository path in the Source of the pipeline stack.
-* ### Clone Local Machine to Github repository
-To clone the github repository to local machine run this command
+DO following steps to complete the project. 
+Install Node JS and visual studio code.
+Run command to create App
 ```
-$ git clone <github repository url>
+$ npm create-react-app my-app
 ```
-Then chnage directory to your project folder using this command.
+Change directory to my-app using this command
 ```
-$ cd <projectfolder path>
+$ cd my-app
 ```
-if you add any thing to project then commit and push code to github repo using these command. 
- ```
- $ git status
- $ git add .
- $ git commit -m "updated file"
- $git push
- ```
-* ### Bootstrap your AWS environments
-Before deploying CDK Pipelines, you must bootstrap the AWS environment. An environment is an account/region pair where you want to deploy a CDK stack. Add the Account ID, Region, qualifier name (of your choice), and toolkit name (of your choice) in the command and run this command in the terminal to bootstrap the AWS environment.
+Run this command to install Chakra UI Library
 ```
-$ cdk bootstrap aws://<Acount ID>/<Region> --qualifier <name> --toolkit-stack-name <name>
+$ npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^5
+```	
+Now remove all files from the src folder except App.js and index.js
+Write code in App.js for react app. 
+Now check your app by running this command
 ```
-Make sure to add your qualifier name in the cdk.json file, add the qualifier name in the following form.
+$ npm start
 ```
-"@aws-cdk/core:bootstrapQualifier": "<qualifier name>"
+Once your app is done. Build an app using this command. 
 ```
-* ### Deploy Pipeline 
-Once the environment is bootstrap successfully, deploy the pipeline stack using this command. use your pipeline stack name instead of pipeline stack  
+$ npm run build
 ```
-$ cdk deploy pipelinestack
-```
-now all required requirements are done on machine. 
-* ### CodePipeline
-To check that your CDK pipeline is created successfully, open CodePipeline in AWS services  
-* ### Upload json file to S3 bucket
-When CI/CD pipeline is implemented successfully then upload json file on S3 bucket and check Dynamo DB table. All Url for webpages will be stored into DynamoDB table.
-* ### Test API Gateway method
-Open API Gateway, and then run method (add input if required for method) and observe chnages in DynamoDB table.  
+Make zip folder from build folder and upload to S3 Bucket/GitHub Repo. 
+Go to AWS Amplify service and deploy the zip file from S3 Bucket/GitHub Repo.
+Go to URL and test your App.
+  
 ### Author
 Muhammad Irfan Hassan Trainee @skipQ  muhammad.irfan.hassan.s@skipq.org
 
