@@ -46,8 +46,8 @@ class Sprint3IrfanStack(cdk.Stack):
 
 ############ deploying app using aws amplify ####################################################
         amplify_myapp = amplify_.App(self, 'IrfanApp')
-        App_s3_asset = s3_assets.Asset(self, "IrfanAppasset",path="/irfanskipq/build.zip")
-        branch = amplify.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
+        App_s3_asset = s3_assets.Asset(self, "IrfanAppasset",path="/irfanskipq")
+        branch = amplify_.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
 
     # the properties below are optional
 
