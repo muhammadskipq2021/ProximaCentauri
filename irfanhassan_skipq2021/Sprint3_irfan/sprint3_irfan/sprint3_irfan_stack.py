@@ -45,9 +45,9 @@ class Sprint3IrfanStack(cdk.Stack):
         db_lamda.add_environment('table_name', dynamo_table.table_name)
 
 ############ deploying app using aws amplify ####################################################
-        amplify_myapp = amplify_.App(self, 'IrfanApp')
-        App_s3_asset = s3_assets.Asset(self, "IrfanAppasset",path="./build.zip")
-        branch = amplify_.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
+       # amplify_myapp = amplify_.App(self, 'IrfanApp')
+    #    App_s3_asset = s3_assets.Asset(self, "IrfanAppasset",path="./build.zip")
+    #    branch = amplify_.Branch(self, "IrfanAppBranch",app=amplify_myapp,asset=App_s3_asset)
 
     # the properties below are optional
 
