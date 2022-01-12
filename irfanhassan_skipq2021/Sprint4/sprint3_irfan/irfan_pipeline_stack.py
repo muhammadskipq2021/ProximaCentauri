@@ -26,7 +26,7 @@ class IrfanPipelineStack(core.Stack):
         
 ########   Adding Beta Stage with Unit Test and Initgration Test ###########################################
         betaStage = IrfanStage(self, "BetaStag", env = { 'account': '315997497220', 'region': 'us-east-2'})
-        test = pipelines.ShellStep('unit_and_Integration_test_',commands=["cd irfanhassan_skipq2021/Sprint3_irfan", "pip install -r requirements.txt",
+        test = pipelines.ShellStep('unit_and_Integration_test_',commands=["cd irfanhassan_skipq2021/Sprint4", "pip install -r requirements.txt",
         "pip install pytest","pip install requests","pytest unittest"])#,"pytest Intigration"])
         pipeline.add_stage(betaStage, post = [test])
     
