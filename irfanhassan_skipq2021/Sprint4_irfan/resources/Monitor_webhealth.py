@@ -5,7 +5,7 @@ import constants as constant_
 from cloud_watch import CloudWatch_PutMetric
 #from s3bucket_read import s3bucket_read as bucket
 from tablescan import tablescan 
-
+from s3bucket_read import s3bucket_read as bucket
 
 #lambda function will invoke after each 1 minutes(periodic) #########################################
 def lambda_handler(event,context):
@@ -13,8 +13,8 @@ def lambda_handler(event,context):
     tablename = os.getenv('table_name') #getting url table name 
     cloudwatch = CloudWatch_PutMetric();    #creating cloudwatch instance
     dbscan=tablescan()
-    list_url=dbscan.read_table(tablename)    #getting url list from url table
-    #list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list()
+#    list_url=dbscan.read_table(tablename)    #getting url list from url table
+    list_url=bucket(constant_.bucket,constant_.file_name).bucket_as_list()
     
     ########################### creating metrics for each webpage ######################################
     for url in list_url:
