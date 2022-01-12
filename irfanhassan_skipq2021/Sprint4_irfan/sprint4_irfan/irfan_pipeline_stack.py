@@ -4,7 +4,7 @@ from aws_cdk import (
     pipelines,
     aws_codepipeline_actions as cpactions
 )
-from sprint3_irfan.irfan_stage import IrfanStage
+from sprint4_irfan.irfan_stage import IrfanStage
 class IrfanPipelineStack(core.Stack):
     def __init__(self, scope: core.Construct, construct_id: str, **kwargs) -> None:
         super().__init__(scope, construct_id, **kwargs)
