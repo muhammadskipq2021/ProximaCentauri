@@ -7,6 +7,6 @@ from sprint3_irfan.irfan_pipeline_stack import IrfanPipelineStack
 
 
 app = core.App()
-IrfanPipelineStack(app, "IrfanskipqPipelineStack",env=core.Environment(account='315997497220', region='us-east-2'))
+IrfanPipelineStack(app, "IrfanSprint4Pipeline",env=core.Environment(account='315997497220', region='us-east-2'))
 
 app.synth()
